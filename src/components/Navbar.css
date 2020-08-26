@@ -1,0 +1,15 @@
+.navbar {
+  display: flex;
+  justify-content: right;
+  padding-bottom: 6px;
+}
+
+.navItem {
+  padding-right: 14px;
+  font-weight: 600;
+  color: rgb(218, 22, 22);
+}
+
+.logo {
+  max-width: 30%;
+}
