@@ -8,12 +8,12 @@ export default function Home() {
 
   return (
     <div>
-      <Image marginBottom={20} w={1500} src={globalquiz}></Image>
+      <Image marginBottom={18} w={1500} src={globalquiz}></Image>
       <div>
-        <Heading padding={6} as="h3" size="lg">
+        <Heading p={6} as="h3" size="lg">
           Keep track of your quiz answers and score!
         </Heading>
-        <Button onClick={() => history.push("/answers")}>
+        <Button m={3} onClick={() => history.push("/answers")}>
           Start keeping score!
         </Button>
       </div>
