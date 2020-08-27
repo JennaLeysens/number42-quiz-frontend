@@ -14,10 +14,20 @@ export default function Login() {
 
   return (
     <Box>
-      <Heading>Login</Heading>
+      <Heading paddingBottom={4}>Login</Heading>
       <FormControl isRequired>
-        <FormLabel>Email address</FormLabel> <Input value={email}></Input>
-        <FormLabel>Password</FormLabel> <Input></Input>
+        <FormLabel>Email address</FormLabel>{" "}
+        <Input
+          placeholder="Email address"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        ></Input>
+        <FormLabel>Password</FormLabel>{" "}
+        <Input
+          placeholder="Login"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        ></Input>
       </FormControl>
       <Button>Login</Button>
     </Box>
