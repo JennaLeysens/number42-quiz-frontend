@@ -5,6 +5,14 @@ export function userLoggedIn(data) {
   return { type: "LOGIN-SUCCESS", payload: data };
 }
 
+export function tokenStillValid(userWithoutToken) {
+  return { type: "TOKEN_STILL_VALID", payload: userWithoutToken };
+}
+
+export function userLoggedOut() {
+  return { type: "LOG_OUT" };
+}
+
 export function login(email, password) {
   return async (dispatch, getState) => {
     try {
