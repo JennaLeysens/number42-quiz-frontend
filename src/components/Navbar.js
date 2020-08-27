@@ -20,7 +20,7 @@ export default function Navbar() {
         </Box>
         <Box className="navItem">
           <NavLink exact to="/answers">
-            Answers form
+            Answer form
           </NavLink>
         </Box>
         <Box className="navItem">
