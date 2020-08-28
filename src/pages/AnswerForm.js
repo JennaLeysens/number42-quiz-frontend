@@ -15,6 +15,17 @@ import DatePicker from "react-datepicker";
 
 export default function AnswerForm() {
   const [startDate, setStartDate] = useState(() => new Date());
+  const [roundNumber, setRoundNumber] = useState();
+  const [qnumber1, setQNumber1] = useState();
+  const [qnumber2, setQNumber2] = useState();
+  const [qnumber3, setQNumber3] = useState();
+  const [qnumber4, setQNumber4] = useState();
+  const [qnumber5, setQNumber5] = useState();
+  const [qnumber6, setQNumber6] = useState();
+  const [qnumber7, setQNumber7] = useState();
+  const [qnumber8, setQNumber8] = useState();
+  const [qnumber9, setQNumber9] = useState();
+  const [qnumber10, setQNumber10] = useState();
 
   return (
     <Box>
@@ -32,11 +43,14 @@ export default function AnswerForm() {
             <option>7</option>
           </Select>
         </Stack>
-        <Stack>
+        <Stack p={5}>
           <FormLabel>Quiz date</FormLabel>
           <DatePicker
             selected={startDate}
+            value={startDate}
             onChange={(date) => setStartDate(date)}
+            selectsRange
+            inline
           />
         </Stack>
         <Stack isInline>
@@ -59,6 +73,31 @@ export default function AnswerForm() {
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>
+        <Stack isInline>
+          <Input w={700} size="lg"></Input>
+          <FormLabel>Points</FormLabel>
+          <NumberInput size="sm"></NumberInput>
+        </Stack>
+        <Stack isInline>
+          <Input w={700} size="lg"></Input>
+          <FormLabel>Points</FormLabel>
+          <NumberInput size="sm"></NumberInput>
+        </Stack>{" "}
+        <Stack isInline>
+          <Input w={700} size="lg"></Input>
+          <FormLabel>Points</FormLabel>
+          <NumberInput size="sm"></NumberInput>
+        </Stack>{" "}
+        <Stack isInline>
+          <Input w={700} size="lg"></Input>
+          <FormLabel>Points</FormLabel>
+          <NumberInput size="sm"></NumberInput>
+        </Stack>{" "}
+        <Stack isInline>
+          <Input w={700} size="lg"></Input>
+          <FormLabel>Points</FormLabel>
+          <NumberInput size="sm"></NumberInput>
+        </Stack>{" "}
         <Stack isInline>
           <Input w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
