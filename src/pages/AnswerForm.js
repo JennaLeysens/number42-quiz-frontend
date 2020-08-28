@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Heading,
   Stack,
@@ -10,8 +10,12 @@ import {
   Select,
 } from "@chakra-ui/core";
 import "./AnswerForm.css";
+import "react-datepicker/dist/react-datepicker.css";
+import DatePicker from "react-datepicker";
 
 export default function AnswerForm() {
+  const [startDate, setStartDate] = useState(() => new Date());
+
   return (
     <Box>
       <Box className="container" spacing={3}>
@@ -28,10 +32,12 @@ export default function AnswerForm() {
             <option>7</option>
           </Select>
         </Stack>
-        <Stack isInline>
-          <Input w={700} size="lg"></Input>
-          <FormLabel>Points</FormLabel>
-          <NumberInput size="sm"></NumberInput>
+        <Stack>
+          <FormLabel>Quiz date</FormLabel>
+          <DatePicker
+            selected={startDate}
+            onChange={(date) => setStartDate(date)}
+          />
         </Stack>
         <Stack isInline>
           <Input w={700} size="lg"></Input>
@@ -53,7 +59,12 @@ export default function AnswerForm() {
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>
-      </Box>{" "}
+        <Stack isInline>
+          <Input w={700} size="lg"></Input>
+          <FormLabel>Points</FormLabel>
+          <NumberInput size="sm"></NumberInput>
+        </Stack>
+      </Box>
       <Button m={10} size="md">
         Submit answers
       </Button>
