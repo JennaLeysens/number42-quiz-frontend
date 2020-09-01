@@ -3,8 +3,12 @@ import { Box, Image } from "@chakra-ui/core";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../number42-logo.png";
+import { selectToken } from "../store/User/selector";
+import { useSelector } from "react-redux";
 
 export default function Navbar() {
+  const token = useSelector(selectToken);
+
   return (
     <>
       <Box className="logo">
