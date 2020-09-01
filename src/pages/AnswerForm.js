@@ -38,55 +38,56 @@ export default function AnswerForm() {
             <option>5</option>
             <option>6</option>
             <option>7</option>
+            <option>8</option>
           </Select>
         </Stack>
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>{" "}
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>{" "}
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>{" "}
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>{" "}
         <Stack isInline>
-          <Input w={700} size="lg"></Input>
+          <Input placeholder="Type your answer here" w={700} size="lg"></Input>
           <FormLabel>Points</FormLabel>
           <NumberInput size="sm"></NumberInput>
         </Stack>

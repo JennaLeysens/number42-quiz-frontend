@@ -1,13 +1,5 @@
 import React, { useState } from "react";
-import {
-  Heading,
-  Stack,
-  Input,
-  FormLabel,
-  Button,
-  Box,
-  Select,
-} from "@chakra-ui/core";
+import { Heading, Stack, Input, FormLabel, Button, Box } from "@chakra-ui/core";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { useHistory } from "react-router-dom";

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import {
   Input,
   Button,
@@ -7,10 +8,19 @@ import {
   Heading,
   Box,
 } from "@chakra-ui/core";
+import { login } from "../store/User/actions";
 
 export default function Login() {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const dispatch = useDispatch();
+
+  function submitForm(e) {
+    e.preventDefault();
+    dispatch(login(email, password));
+    setEmail("");
+    setPassword("");
+  }
 
   return (
     <Box>
@@ -29,7 +39,7 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         ></Input>
       </FormControl>
-      <Button>Login</Button>
+      <Button onClick={submitForm}>Login</Button>
     </Box>
   );
 }
