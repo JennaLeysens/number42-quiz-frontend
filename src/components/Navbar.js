@@ -19,8 +19,8 @@ export default function Navbar() {
           </NavLink>
         </Box>
         <Box className="navItem">
-          <NavLink exact to="/answers">
-            Answer form
+          <NavLink exact to="/quiz">
+            Start quiz
           </NavLink>
         </Box>
         <Box className="navItem">

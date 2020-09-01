@@ -5,6 +5,7 @@ import Home from "./pages/Home";
 import AnswerForm from "./pages/AnswerForm";
 import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
+import Quiz from "./pages/Quiz";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <Switch>
         <Route path="/login" component={Login} />
         <Route path="/answers" component={AnswerForm} />
+        <Route path="/quiz" component={Quiz} />
         <Route path="/" component={Home} />
       </Switch>
     </div>

@@ -10,12 +10,9 @@ import {
   Select,
 } from "@chakra-ui/core";
 import "./AnswerForm.css";
-import "react-datepicker/dist/react-datepicker.css";
-import DatePicker from "react-datepicker";
 
 export default function AnswerForm() {
-  const [startDate, setStartDate] = useState(() => new Date());
-  const [roundNumber, setRoundNumber] = useState();
+  const [editionNumber, setEditionNumber] = useState();
   const [qnumber1, setQNumber1] = useState();
   const [qnumber2, setQNumber2] = useState();
   const [qnumber3, setQNumber3] = useState();
@@ -42,16 +39,6 @@ export default function AnswerForm() {
             <option>6</option>
             <option>7</option>
           </Select>
-        </Stack>
-        <Stack p={5}>
-          <FormLabel>Quiz date</FormLabel>
-          <DatePicker
-            selected={startDate}
-            value={startDate}
-            onChange={(date) => setStartDate(date)}
-            selectsRange
-            inline
-          />
         </Stack>
         <Stack isInline>
           <Input w={700} size="lg"></Input>
