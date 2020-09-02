@@ -35,7 +35,7 @@ export default function Navbar() {
               Login
             </NavLink>
           ) : (
-            <Button onClick={dispatch(logOut())}>Logout</Button>
+            <Button onClick={() => dispatch(logOut())}>Logout</Button>
           )}
         </Box>
       </Box>
