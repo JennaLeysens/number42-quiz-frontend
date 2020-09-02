@@ -6,13 +6,17 @@ import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter as Router } from "react-router-dom";
 import { ThemeProvider, CSSReset } from "@chakra-ui/core";
 import customTheme from "./theme";
+import { Provider } from "react-redux";
+import store from "./store";
 
 ReactDOM.render(
   <React.StrictMode>
     <ThemeProvider theme={customTheme}>
       <CSSReset />
       <Router>
-        <App />
+        <Provider store={store}>
+          <App />
+        </Provider>
       </Router>
     </ThemeProvider>
   </React.StrictMode>,
