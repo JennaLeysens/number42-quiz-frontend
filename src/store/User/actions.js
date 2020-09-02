@@ -1,5 +1,6 @@
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
+import { selectToken } from "../User/selectors";
 
 export function userLoggedIn(data) {
   return { type: "LOGIN-SUCCESS", payload: data };
@@ -27,6 +28,32 @@ export function login(email, password) {
       } else {
         console.log(error.message);
       }
+    }
+  };
+}
+
+export function logOut() {
+  return { type: "LOG_OUT" };
+}
+
+export function getUserWithStoredToken() {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+
+    if (token === null) return;
+    try {
+      const response = await axios.get(`${apiUrl}/me`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+
+      dispatch(tokenStillValid(response.data));
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response.message);
+      } else {
+        console.log(error);
+      }
+      dispatch(logOut());
     }
   };
 }
