@@ -28,9 +28,13 @@ export default function Navbar() {
           </NavLink>
         </Box>
         <Box className="navItem">
-          <NavLink exact to="/login">
-            Login
-          </NavLink>
+          {!token ? (
+            <NavLink exact to="/login">
+              Login
+            </NavLink>
+          ) : (
+            <NavLink to="">Logout</NavLink>
+          )}
         </Box>
       </Box>
     </>
