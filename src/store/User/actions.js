@@ -1,6 +1,6 @@
 import axios from "axios";
 import { apiUrl } from "../../config/constants";
-import { selectToken } from "../User/selectors";
+import { selectToken } from "../User/selector";
 
 export function userLoggedIn(data) {
   return { type: "LOGIN-SUCCESS", payload: data };
