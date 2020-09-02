@@ -1,13 +1,15 @@
 import React from "react";
-import { Box, Image } from "@chakra-ui/core";
+import { Box, Image, Button } from "@chakra-ui/core";
 import { NavLink } from "react-router-dom";
 import "./Navbar.css";
 import logo from "../number42-logo.png";
 import { selectToken } from "../store/User/selector";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { logOut } from "../store/User/actions";
 
 export default function Navbar() {
   const token = useSelector(selectToken);
+  const dispatch = useDispatch();
 
   return (
     <>
@@ -33,7 +35,7 @@ export default function Navbar() {
               Login
             </NavLink>
           ) : (
-            <NavLink to="">Logout</NavLink>
+            <Button onClick={dispatch(logOut())}>Logout</Button>
           )}
         </Box>
       </Box>
