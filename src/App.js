@@ -8,6 +8,8 @@ import Navbar from "./components/Navbar";
 import Login from "./pages/Login";
 import Quiz from "./pages/Quiz";
 import { getUserWithStoredToken } from "./store/User/actions";
+import Profile from "./pages/Profile";
+import Signup from "./pages/Signup";
 
 function App() {
   const dispatch = useDispatch();
@@ -20,6 +22,8 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <Switch>
+        <Route path="/signup" component={Signup} />
+        <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/answers" component={AnswerForm} />
         <Route path="/quiz" component={Quiz} />
