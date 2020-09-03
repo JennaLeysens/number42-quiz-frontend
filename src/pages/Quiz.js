@@ -5,9 +5,8 @@ import DatePicker from "react-datepicker";
 import { useHistory } from "react-router-dom";
 
 export default function Quiz() {
-  const [startDate, setStartDate] = useState();
+  const [date, setDate] = useState(() => new Date());
   const history = useHistory();
-  const selected = new Date();
 
   return (
     <Box>
@@ -19,10 +18,12 @@ export default function Quiz() {
       <Stack p={5}>
         <FormLabel>Quiz date</FormLabel>
         <DatePicker
-          selected={selected}
-          value={startDate}
-          onChange={(date) => setStartDate(date, console.log(date))}
-          selectsRange
+          selected={date}
+          value={date}
+          onChange={(nextValue) => {
+            setDate(nextValue);
+            console.log(nextValue);
+          }}
           inline
         />
       </Stack>
