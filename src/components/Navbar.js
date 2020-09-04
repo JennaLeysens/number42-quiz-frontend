@@ -35,14 +35,10 @@ export default function Navbar() {
         {!token ? (
           <Box className="navbar">
             <Box className="navItem">
-              <NavLink exact to="/login">
-                Login
-              </NavLink>
+              <NavLink to="/login">Login</NavLink>
             </Box>
             <Box className="navItem">
-              <NavLink exact to="/signup">
-                Create account
-              </NavLink>
+              <NavLink to="/signup">Create account</NavLink>
             </Box>
           </Box>
         ) : (
