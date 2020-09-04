@@ -7,11 +7,20 @@ import {
   Input,
   Button,
 } from "@chakra-ui/core";
+import { useHistory } from "react-router-dom";
 
 export default function Signup() {
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
+  const history = useHistory();
+
+  function submitForm() {
+    setName("");
+    setEmail("");
+    setPassword("");
+    history.push("/");
+  }
 
   return (
     <Box>
@@ -37,7 +46,9 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
         ></Input>
       </FormControl>
-      <Button margin={5}>Create account</Button>
+      <Button margin={5} onClick={submitForm()}>
+        Create account
+      </Button>
     </Box>
   );
 }
