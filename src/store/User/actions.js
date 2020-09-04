@@ -57,3 +57,21 @@ export function getUserWithStoredToken() {
     }
   };
 }
+
+export function signUp(name, email, password) {
+  return async (dispatch, getState) => {
+    try {
+      const response = await axios.post(`${apiUrl}/signup`, {
+        name,
+        email,
+        password,
+      });
+      dispatch(userLoggedIn(response.data));
+    } catch (error) {
+      if (error.response) {
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+}
