@@ -6,14 +6,27 @@ import { useHistory } from "react-router-dom";
 
 export default function Quiz() {
   const [date, setDate] = useState(() => new Date());
+  const [edition, setEdition] = useState();
+  const [team1, setTeam1] = useState();
+  const [team2, setTeam2] = useState();
+  const [team3, setTeam3] = useState();
   const history = useHistory();
+
+  const team = [team1, team2, team3];
+
+  function submitForm() {}
 
   return (
     <Box>
       <Heading>I'm starting a quiz!</Heading>
       <Stack>
         <FormLabel>Edition number</FormLabel>
-        <Input w={200} size="sm"></Input>
+        <Input
+          w={200}
+          size="sm"
+          value={edition}
+          onChange={(e) => setEdition(e.target.value)}
+        ></Input>
       </Stack>
       <Stack p={5}>
         <FormLabel>Quiz date</FormLabel>
@@ -27,7 +40,15 @@ export default function Quiz() {
           inline
         />
       </Stack>
-      <Button onClick={() => history.push("/answers")}>Start quiz</Button>
+      <Stack>
+        <FormLabel>Team member(s)</FormLabel>
+        <Input value={team1} onChange={(e) => setTeam1(e.target.value)}></Input>
+        <Input value={team2} onChange={(e) => setTeam2(e.target.value)}></Input>
+        <Input value={team3} onChange={(e) => setTeam3(e.target.value)}></Input>
+      </Stack>
+      <Button margin={5} onClick={() => history.push("/answers")}>
+        Start quiz
+      </Button>
     </Box>
   );
 }
