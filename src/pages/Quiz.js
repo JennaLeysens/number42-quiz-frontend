@@ -3,6 +3,8 @@ import { Heading, Stack, Input, FormLabel, Button, Box } from "@chakra-ui/core";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { useHistory } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { quizAdded } from "../store/User/actions";
 
 export default function Quiz() {
   const [date, setDate] = useState(() => new Date());
@@ -11,10 +13,13 @@ export default function Quiz() {
   const [team2, setTeam2] = useState();
   const [team3, setTeam3] = useState();
   const history = useHistory();
+  const dispatch = useDispatch();
 
   const team = [team1, team2, team3];
 
-  function submitForm() {}
+  function submitForm() {
+    dispatch(quizAdded(edition, date, team));
+  }
 
   return (
     <Box>
