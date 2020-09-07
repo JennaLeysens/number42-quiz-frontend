@@ -14,6 +14,10 @@ export function userLoggedOut() {
   return { type: "LOG_OUT" };
 }
 
+export function quizAdded(data) {
+  return { type: "QUIZ_ADDED", payload: data };
+}
+
 export function login(email, password) {
   return async (dispatch, getState) => {
     try {
@@ -69,6 +73,30 @@ export function signUp(name, email, password) {
       dispatch(userLoggedIn(response.data));
     } catch (error) {
       if (error.response) {
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+}
+
+export function addQuiz(edition, date, team) {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+    try {
+      const response = await axios.post(
+        `${apiUrl}/`,
+        {
+          edition,
+          date,
+          team,
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      dispatch(quizAdded(response.data));
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
       } else {
         console.log(error.message);
       }
