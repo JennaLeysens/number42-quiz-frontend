@@ -4,7 +4,7 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { quizAdded } from "../store/User/actions";
+import { addQuiz } from "../store/User/actions";
 
 export default function Quiz() {
   const [date, setDate] = useState(() => new Date());
@@ -18,7 +18,7 @@ export default function Quiz() {
   const team = [team1, team2, team3];
 
   function submitForm() {
-    dispatch(quizAdded(edition, date, team));
+    dispatch(addQuiz(edition, date, team));
   }
 
   return (

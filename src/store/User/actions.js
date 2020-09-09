@@ -83,6 +83,7 @@ export function signUp(name, email, password) {
 export function addQuiz(edition, date, team) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
+    console.log("action");
     try {
       const response = await axios.post(
         `${apiUrl}`,
@@ -94,6 +95,7 @@ export function addQuiz(edition, date, team) {
         { headers: { Authorization: `Bearer ${token}` } }
       );
       dispatch(quizAdded(response.data));
+      console.log("data", response.data);
     } catch (error) {
       if (error.response) {
         console.log(error.response);

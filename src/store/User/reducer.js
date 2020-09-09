@@ -15,6 +15,7 @@ export default function userSliceReducer(state = initialState, action) {
       localStorage.removeItem("token");
       return { ...initialState, token: null };
     case "QUIZ_ADDED":
+      console.log(action.payload);
       return {
         ...state,
         quiz: action.payload,
