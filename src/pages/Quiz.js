@@ -51,13 +51,7 @@ export default function Quiz() {
         <Input value={team2} onChange={(e) => setTeam2(e.target.value)}></Input>
         <Input value={team3} onChange={(e) => setTeam3(e.target.value)}></Input>
       </Stack>
-      <Button
-        margin={5}
-        onClick={() => {
-          submitForm();
-          history.push("/answers");
-        }}
-      >
+      <Button margin={5} onClick={submitForm}>
         Start quiz
       </Button>
     </Box>

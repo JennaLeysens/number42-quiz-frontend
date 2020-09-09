@@ -85,7 +85,7 @@ export function addQuiz(edition, date, team) {
     const token = selectToken(getState());
     try {
       const response = await axios.post(
-        `${apiUrl}/`,
+        `${apiUrl}`,
         {
           edition,
           date,

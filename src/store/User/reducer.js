@@ -1,6 +1,7 @@
 const initialState = {
   token: localStorage.getItem("token"),
   user: null,
+  quiz: null,
 };
 
 export default function userSliceReducer(state = initialState, action) {
@@ -13,6 +14,11 @@ export default function userSliceReducer(state = initialState, action) {
     case "LOG_OUT":
       localStorage.removeItem("token");
       return { ...initialState, token: null };
+    case "QUIZ_ADDED":
+      return {
+        ...state,
+        quiz: action.payload,
+      };
     default:
       return state;
   }
