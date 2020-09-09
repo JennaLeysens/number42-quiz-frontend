@@ -80,7 +80,7 @@ export function signUp(name, email, password) {
   };
 }
 
-export function addQuiz(edition, date, team) {
+export function addQuiz(editionNumber, date, teamMembers) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     console.log("action");
@@ -88,9 +88,9 @@ export function addQuiz(edition, date, team) {
       const response = await axios.post(
         `${apiUrl}`,
         {
-          edition,
+          editionNumber,
           date,
-          team,
+          teamMembers,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
