@@ -4,21 +4,21 @@ import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { quizAdded } from "../store/User/actions";
+import { addQuiz } from "../store/User/actions";
 
 export default function Quiz() {
   const [date, setDate] = useState(() => new Date());
-  const [edition, setEdition] = useState();
+  const [editionNumber, setEdition] = useState();
   const [team1, setTeam1] = useState();
   const [team2, setTeam2] = useState();
   const [team3, setTeam3] = useState();
   const history = useHistory();
   const dispatch = useDispatch();
 
-  const team = [team1, team2, team3];
+  const teamMembers = [team1, team2, team3];
 
   function submitForm() {
-    dispatch(quizAdded(edition, date, team));
+    dispatch(addQuiz(editionNumber, date, teamMembers));
   }
 
   return (
@@ -29,7 +29,7 @@ export default function Quiz() {
         <Input
           w={200}
           size="sm"
-          value={edition}
+          value={editionNumber}
           onChange={(e) => setEdition(e.target.value)}
         ></Input>
       </Stack>
@@ -51,13 +51,7 @@ export default function Quiz() {
         <Input value={team2} onChange={(e) => setTeam2(e.target.value)}></Input>
         <Input value={team3} onChange={(e) => setTeam3(e.target.value)}></Input>
       </Stack>
-      <Button
-        margin={5}
-        onClick={() => {
-          submitForm();
-          history.push("/answers");
-        }}
-      >
+      <Button margin={5} onClick={submitForm}>
         Start quiz
       </Button>
     </Box>
