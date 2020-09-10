@@ -20,6 +20,12 @@ export default function userSliceReducer(state = initialState, action) {
         ...state,
         quiz: action.payload,
       };
+    case "ROUND_ADDED":
+      console.log("round reducer", action.payload);
+      return {
+        ...state,
+        quiz: action.payload,
+      };
     default:
       return state;
   }

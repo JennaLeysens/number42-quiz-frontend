@@ -10,6 +10,7 @@ import Quiz from "./pages/Quiz";
 import { getUserWithStoredToken } from "./store/User/actions";
 import Profile from "./pages/Profile";
 import Signup from "./pages/Signup";
+import Round from "./pages/Round";
 
 function App() {
   const dispatch = useDispatch();
@@ -26,6 +27,7 @@ function App() {
         <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/answers" component={AnswerForm} />
+        <Route path="/round" component={Round} />
         <Route path="/quiz" component={Quiz} />
         <Route path="/" component={Home} />
       </Switch>
