@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addQuiz } from "../store/User/actions";
 
-export default function Quiz() {
+export default function QuizForm() {
   const [date, setDate] = useState(() => new Date());
   const [editionNumber, setEdition] = useState();
   const [team1, setTeam1] = useState();

@@ -22,6 +22,17 @@ export function roundAdded(data) {
   return { type: "ROUND_ADDED", payload: data };
 }
 
+export function storeQuizzes(data) {
+  return { type: "FETCH_QUIZZES", payload: data };
+}
+
+export function fetchQuizzes() {
+  return async (dispatch, getState) => {
+    const response = await axios.get(`${apiUrl}/quizzes`);
+    dispatch(storeQuizzes(response.data));
+  };
+}
+
 export function login(email, password) {
   return async (dispatch, getState) => {
     try {
