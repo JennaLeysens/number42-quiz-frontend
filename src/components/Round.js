@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   Heading,
   Stack,
@@ -7,9 +8,13 @@ import {
   Button,
   Box,
 } from "@chakra-ui/core";
+import { useParams } from "react-router-dom";
 
 export default function Round() {
   const [round, setRound] = useState();
+  const dispatch = useDispatch();
+  const { id } = useParams();
+  console.log(id);
 
   return (
     <Box>
