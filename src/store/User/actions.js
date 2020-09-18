@@ -22,6 +22,17 @@ export function roundAdded(data) {
   return { type: "ROUND_ADDED", payload: data };
 }
 
+export function storeQuizzes(data) {
+  return { type: "FETCH_QUIZZES", payload: data };
+}
+
+export function fetchQuizzes() {
+  return async (dispatch, getState) => {
+    const response = await axios.get(`${apiUrl}/quizzes`);
+    dispatch(storeQuizzes(response.data));
+  };
+}
+
 export function login(email, password) {
   return async (dispatch, getState) => {
     try {
@@ -110,7 +121,7 @@ export function addQuiz(editionNumber, date, teamMembers) {
   };
 }
 
-export function addRound(round) {
+export function addRound(roundNumber, quizId) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     console.log("action round");
@@ -118,11 +129,12 @@ export function addRound(round) {
       const response = await axios.post(
         `${apiUrl}/round`,
         {
-          round,
+          roundNumber,
+          quizId,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      dispatch(quizAdded(response.data));
+      dispatch(roundAdded(response.data));
       console.log("round", response.data);
     } catch (error) {
       if (error.response) {

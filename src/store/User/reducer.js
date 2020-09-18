@@ -2,6 +2,7 @@ const initialState = {
   token: localStorage.getItem("token"),
   user: null,
   quiz: null,
+  round: null,
 };
 
 export default function userSliceReducer(state = initialState, action) {
@@ -24,7 +25,7 @@ export default function userSliceReducer(state = initialState, action) {
       console.log("round reducer", action.payload);
       return {
         ...state,
-        quiz: action.payload,
+        round: action.payload,
       };
     default:
       return state;
