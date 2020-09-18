@@ -121,7 +121,7 @@ export function addQuiz(editionNumber, date, teamMembers) {
   };
 }
 
-export function addRound(round) {
+export function addRound(roundNumber, quizId) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     console.log("action round");
@@ -129,11 +129,12 @@ export function addRound(round) {
       const response = await axios.post(
         `${apiUrl}/round`,
         {
-          round,
+          roundNumber,
+          quizId,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      dispatch(quizAdded(response.data));
+      dispatch(roundAdded(response.data));
       console.log("round", response.data);
     } catch (error) {
       if (error.response) {
