@@ -3,6 +3,7 @@ const initialState = {
   user: null,
   quiz: null,
   round: null,
+  answers: null,
 };
 
 export default function userSliceReducer(state = initialState, action) {
@@ -26,6 +27,12 @@ export default function userSliceReducer(state = initialState, action) {
       return {
         ...state,
         round: action.payload,
+      };
+    case "ANSWER_ADDED":
+      console.log("answer reducer", action.payload);
+      return {
+        ...state,
+        answers: action.payload,
       };
     default:
       return state;
