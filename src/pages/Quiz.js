@@ -6,7 +6,7 @@ import Round from "../components/Round";
 
 export default function Quiz() {
   const user = useSelector(selectUser);
-  console.log(user);
+  console.log(user.quizzes);
 
   return (
     <Box>
