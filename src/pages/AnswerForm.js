@@ -10,7 +10,7 @@ import {
   Box,
 } from "@chakra-ui/core";
 import "./AnswerForm.css";
-import { addAnswer, quizAdded } from "../store/User/actions";
+import { addAnswer } from "../store/User/actions";
 import { useParams } from "react-router-dom";
 
 export default function AnswerForm() {

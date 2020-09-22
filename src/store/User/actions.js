@@ -150,7 +150,7 @@ export function addRound(roundNumber, quizId) {
   };
 }
 
-export function addAnswer(roundNumber, quizId, answer) {
+export function addAnswer(quizId, roundId, answer, points) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     console.log("action answer");
@@ -158,9 +158,10 @@ export function addAnswer(roundNumber, quizId, answer) {
       const response = await axios.post(
         `${apiUrl}/answer`,
         {
-          roundNumber,
           quizId,
+          roundId,
           answer,
+          points,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
