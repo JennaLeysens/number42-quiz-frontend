@@ -1,14 +1,6 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  Heading,
-  Stack,
-  Input,
-  NumberInput,
-  FormLabel,
-  Button,
-  Box,
-} from "@chakra-ui/core";
+import { Heading, Stack, Input, FormLabel, Button, Box } from "@chakra-ui/core";
 import "./AnswerForm.css";
 import { addAnswer } from "../store/User/actions";
 import { useParams } from "react-router-dom";
@@ -25,7 +17,7 @@ export default function AnswerForm() {
   const roundId = round;
 
   function submitForm() {
-    dispatch(addAnswer(quizId, roundId, answer, points));
+    dispatch(addAnswer(answer, points, roundId, quizId));
   }
 
   return (
@@ -41,11 +33,11 @@ export default function AnswerForm() {
             onChange={(e) => setAnswer(e.target.value)}
           ></Input>
           <FormLabel>Points</FormLabel>
-          <NumberInput
+          <Input
             size="sm"
             value={points}
             onChange={(e) => setPoints(e.target.value)}
-          ></NumberInput>
+          ></Input>
         </Stack>
       </Box>
       <Button m={10} size="md" onClick={submitForm}>
