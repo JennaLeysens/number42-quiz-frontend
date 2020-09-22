@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import {
   Heading,
   Stack,
@@ -9,8 +10,10 @@ import {
   Box,
 } from "@chakra-ui/core";
 import "./AnswerForm.css";
+import { addAnswer } from "../store/User/actions";
 
 export default function AnswerForm() {
+  const dispatch = useDispatch();
   const [qnumber1, setQNumber1] = useState();
   const [qnumber2, setQNumber2] = useState();
   const [qnumber3, setQNumber3] = useState();

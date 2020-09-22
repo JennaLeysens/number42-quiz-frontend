@@ -26,6 +26,10 @@ export function storeQuizzes(data) {
   return { type: "FETCH_QUIZZES", payload: data };
 }
 
+export function answerAdded(data) {
+  return { type: "ANSWER_ADDED", payload: data };
+}
+
 export function fetchQuizzes() {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/quizzes`);
@@ -136,6 +140,32 @@ export function addRound(roundNumber, quizId) {
       );
       dispatch(roundAdded(response.data));
       console.log("round", response.data);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+}
+
+export function addAnswer(roundNumber, quizId, answer) {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+    console.log("action answer");
+    try {
+      const response = await axios.post(
+        `${apiUrl}/answer`,
+        {
+          roundNumber,
+          quizId,
+          answer,
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      dispatch(answerAdded(response.data));
+      console.log("answer", response.data);
     } catch (error) {
       if (error.response) {
         console.log(error.response);
