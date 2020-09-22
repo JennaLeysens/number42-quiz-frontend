@@ -26,8 +26,8 @@ function App() {
         <Route path="/signup" component={Signup} />
         <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
+        <Route path="/quiz/:round/:answers" component={AnswerForm} />
         <Route path="/quiz/:id" component={Quiz} />
-        <Route path="/answers" component={AnswerForm} />
         <Route path="/quiz" component={QuizForm} />
         <Route path="/" component={Home} />
       </Switch>
