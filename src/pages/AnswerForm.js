@@ -7,8 +7,7 @@ import { useParams } from "react-router-dom";
 
 export default function AnswerForm() {
   const dispatch = useDispatch();
-  const { id } = useParams();
-  const { round } = useParams();
+  const { id, round } = useParams();
   console.log(id, round);
   const [answer, setAnswer] = useState();
   const [points, setPoints] = useState();
@@ -18,6 +17,7 @@ export default function AnswerForm() {
 
   function submitForm() {
     dispatch(addAnswer(answer, points, roundId, quizId));
+    console.log(answer, points, roundId, quizId);
   }
 
   return (
