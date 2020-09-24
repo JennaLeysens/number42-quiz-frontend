@@ -27,7 +27,7 @@ function App() {
         <Route path="/profile" component={Profile} />
         <Route path="/login" component={Login} />
         <Route path="/quiz/:id/:round/answers" component={AnswerForm} />
-        <Route path="/quiz/:id" component={Quiz} />
+        <Route path="/quiztime" component={Quiz} />
         <Route path="/quiz" component={QuizForm} />
         <Route path="/" component={Home} />
       </Switch>

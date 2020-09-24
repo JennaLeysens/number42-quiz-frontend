@@ -1,6 +1,14 @@
 import React from "react";
-import { Box } from "@chakra-ui/core";
+import { Box, Heading } from "@chakra-ui/core";
+import { useSelector } from "react-redux";
+import { selectUser } from "../store/User/selector";
 
 export default function Profile() {
-  return <Box></Box>;
+  const user = useSelector(selectUser);
+
+  return (
+    <Box>
+      <Heading>{user.name}'s quizzes</Heading>
+    </Box>
+  );
 }
