@@ -21,7 +21,7 @@ export default function Round() {
     <Box>
       <Stack>
         <Heading>Round number</Heading>
-        <FormLabel>Round number</FormLabel>
+        <FormLabel>Round number </FormLabel>
         <Input
           w={300}
           value={roundNumber}
