@@ -22,22 +22,26 @@ export default function Quiz() {
 
   return (
     <Box>
-      {user.quizzes
+      {id === user.quizzes
         ? user.quizzes.map((quiz) => {
             return (
               <Box>
-                <Heading>Edition number {quiz.editionNumber}</Heading>
-                <Heading as="h2" size="xl">
-                  Team: {quiz.teamMembers}
-                </Heading>
-                <Round></Round>
-                <Box>
-                  <AnswerForm></AnswerForm>
-                </Box>
-                <Box>
-                  New answer
-                  <Button onClick={() => setShow(true)}>+</Button>
-                </Box>
+                {id === quiz.id ? (
+                  <Box>
+                    <Heading>Edition number {quiz.editionNumber}</Heading>
+                    <Heading as="h2" size="xl">
+                      Team: {quiz.teamMembers}
+                    </Heading>
+                    <Round></Round>
+                    <Box>
+                      <AnswerForm></AnswerForm>
+                    </Box>
+                    <Box>
+                      New answer
+                      <Button onClick={() => setShow(true)}>+</Button>
+                    </Box>{" "}
+                  </Box>
+                ) : null}
               </Box>
             );
           })
