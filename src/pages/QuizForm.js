@@ -19,6 +19,7 @@ export default function QuizForm() {
 
   function submitForm() {
     dispatch(addQuiz(editionNumber, date, teamMembers));
+    history.push("/profile");
   }
 
   return (
