@@ -11,6 +11,7 @@ export default function AnswerForm() {
   console.log(id, round);
   const [answer, setAnswer] = useState();
   const [points, setPoints] = useState();
+  const [show, setShow] = useState(false);
 
   const quizId = id;
   const roundId = round;
@@ -19,6 +20,29 @@ export default function AnswerForm() {
     dispatch(addAnswer(answer, points, roundId, quizId));
     console.log(answer, points, roundId, quizId);
   }
+
+  // if (show === true) {
+  //   return (
+  //     <Stack isInline>
+  //       <Input
+  //         placeholder="Type your answer here"
+  //         w={700}
+  //         size="lg"
+  //         value={answer}
+  //         onChange={(e) => setAnswer(e.target.value)}
+  //       ></Input>
+  //       <FormLabel>Points</FormLabel>
+  //       <Input
+  //         size="sm"
+  //         value={points}
+  //         onChange={(e) => setPoints(e.target.value)}
+  //       ></Input>
+  //       <Button m={10} size="md" onClick={submitForm}>
+  //         Submit answers
+  //       </Button>
+  //     </Stack>
+  //   );
+  // }
 
   return (
     <Box>
