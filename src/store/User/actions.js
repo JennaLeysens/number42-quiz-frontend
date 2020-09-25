@@ -22,23 +22,16 @@ export function roundAdded(data) {
   return { type: "ROUND_ADDED", payload: data };
 }
 
-export function storeQuizzes(data) {
-  return { type: "FETCH_QUIZZES", payload: data };
-}
-
 export function answerAdded(data) {
   return { type: "ANSWER_ADDED", payload: data };
 }
 
-export function storeOneQuiz(data) {
-  return { type: "FETCH_QUIZ", payload: data };
+export function storeQuizzes(data) {
+  return { type: "FETCH_QUIZZES", payload: data };
 }
 
-export function fetchQuizzes() {
-  return async (dispatch, getState) => {
-    const response = await axios.get(`${apiUrl}/quizzes`);
-    dispatch(storeQuizzes(response.data));
-  };
+export function storeOneQuiz(data) {
+  return { type: "FETCH_QUIZ", payload: data };
 }
 
 export function login(email, password) {
@@ -181,11 +174,29 @@ export function addAnswer(answer, points, roundId, quizId) {
   };
 }
 
+export function fetchQuizzes() {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+    try {
+      const response = await axios.get(`${apiUrl}/quizzes`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      dispatch(storeQuizzes(response.data));
+      console.log("quizzes", response.data);
+    } catch (error) {
+      if (error.response) {
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+}
+
 export function fetchQuiz(id) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     try {
-      const oneResponse = await axios.get(`${apiUrl}/quiz/${id}`, {
+      const oneResponse = await axios.get(`${apiUrl}/quizzes/${id}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(storeOneQuiz(oneResponse.data));
