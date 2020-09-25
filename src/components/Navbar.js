@@ -43,7 +43,7 @@ export default function Navbar() {
           </Box>
         ) : (
           <Box className="navItem">
-            <NavLink to="/profile">{user.name}'s quizzes</NavLink>
+            <NavLink to="/quizzes">{user.name}'s quizzes</NavLink>
             <Button
               fontSize="14px"
               variantColor="gray"

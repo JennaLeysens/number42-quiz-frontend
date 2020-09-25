@@ -24,10 +24,9 @@ function App() {
       <Navbar></Navbar>
       <Switch>
         <Route path="/signup" component={Signup} />
-        <Route path="/profile" component={Profile} />
-        <Route path="/login" component={Login} />
-        <Route path="/quiz/:id/:round/answers" component={AnswerForm} />
         <Route path="/quizzes/:id" component={Quiz} />
+        <Route exact path="/quizzes" component={Profile} />
+        <Route path="/login" component={Login} />
         <Route path="/quiz" component={QuizForm} />
         <Route path="/" component={Home} />
       </Switch>
