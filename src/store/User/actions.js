@@ -183,8 +183,11 @@ export function addAnswer(answer, points, roundId, quizId) {
 
 export function fetchQuiz(id) {
   return async (dispatch, getState) => {
+    const token = selectToken(getState());
     try {
-      const oneResponse = await axios.get(`${apiUrl}/quiz/${id}`);
+      const oneResponse = await axios.get(`${apiUrl}/quiz/${id}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
       dispatch(storeOneQuiz(oneResponse.data));
     } catch (error) {
       if (error.response) {

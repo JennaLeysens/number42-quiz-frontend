@@ -4,6 +4,7 @@ const initialState = {
   quiz: null,
   round: null,
   answers: null,
+  quizDetails: null,
 };
 
 export default function userSliceReducer(state = initialState, action) {
