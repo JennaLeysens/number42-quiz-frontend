@@ -1,10 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Box, Heading, Link } from "@chakra-ui/core";
-import { useSelector } from "react-redux";
+import { fetchQuizzes } from "../store/User/actions";
 import { selectUser } from "../store/User/selector";
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Profile() {
+  const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const quizzes = user.quizzes;
+  console.log("quizzes", quizzes);
+
+  useEffect(() => {
+    dispatch(fetchQuizzes());
+  }, [dispatch]);
 
   return (
     <Box>

@@ -200,6 +200,7 @@ export function fetchQuiz(id) {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(storeOneQuiz(oneResponse.data));
+      console.log("one", oneResponse.data);
     } catch (error) {
       if (error.response) {
       } else {

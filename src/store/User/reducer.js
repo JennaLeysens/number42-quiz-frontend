@@ -4,6 +4,7 @@ const initialState = {
   quiz: null,
   round: null,
   answers: null,
+  quizzes: null,
   quizDetails: null,
 };
 
@@ -34,6 +35,12 @@ export default function userSliceReducer(state = initialState, action) {
       return {
         ...state,
         answers: action.payload,
+      };
+
+    case "FETCH_QUIZZES":
+      return {
+        ...state,
+        quizzes: action.payload,
       };
     case "FETCH_QUIZ":
       console.log("quiz details reducer", action.payload);

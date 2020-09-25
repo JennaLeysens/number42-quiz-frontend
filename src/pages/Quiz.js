@@ -8,31 +8,28 @@ import { useParams } from "react-router-dom";
 import { fetchQuiz } from "../store/User/actions";
 
 export default function Quiz() {
-  const user = useSelector(selectUser);
-  console.log(user);
-  const [show, setShow] = useState(false);
   const { id } = useParams();
   console.log("id", id);
+  const user = useSelector(selectUser);
+  console.log(user);
   const dispatch = useDispatch();
-
-  // if (show === true) {
-  //   return (
-  //     <Box>
-  //       <AnswerForm></AnswerForm>
-  //     </Box>
-  //   );
-  // }
+  const quiz = user.quizDetails;
+  const isLoading = !quiz;
 
   useEffect(() => {
     dispatch(fetchQuiz(id));
   }, [dispatch, id]);
 
+  if (isLoading) {
+    return <Heading>Loading...</Heading>;
+  }
+
   return (
     <Box>
       <Box>
-        {/* <Heading>Edition number {quiz.editionNumber}</Heading> */}
+        <Heading>Edition number {quiz.editionNumber}</Heading>
         <Heading as="h2" size="xl">
-          {/* Team: {quiz.teamMembers} */}
+          Team: {quiz.teamMembers}
         </Heading>
         <Round></Round>
         <Box>
@@ -40,7 +37,7 @@ export default function Quiz() {
         </Box>
         <Box>
           New answer
-          <Button onClick={() => setShow(true)}>+</Button>
+          <Button>+</Button>
         </Box>
       </Box>
     </Box>
