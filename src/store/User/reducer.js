@@ -34,6 +34,12 @@ export default function userSliceReducer(state = initialState, action) {
         ...state,
         answers: action.payload,
       };
+    case "FETCH_QUIZ":
+      console.log("quiz details reducer", action.payload);
+      return {
+        ...state,
+        quizDetails: action.payload,
+      };
     default:
       return state;
   }
