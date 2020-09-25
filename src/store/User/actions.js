@@ -30,6 +30,10 @@ export function answerAdded(data) {
   return { type: "ANSWER_ADDED", payload: data };
 }
 
+export function storeOneQuiz(data) {
+  return { type: "FETCH_QUIZ", payload: data };
+}
+
 export function fetchQuizzes() {
   return async (dispatch, getState) => {
     const response = await axios.get(`${apiUrl}/quizzes`);
@@ -170,6 +174,20 @@ export function addAnswer(answer, points, roundId, quizId) {
     } catch (error) {
       if (error.response) {
         console.log(error.response);
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+}
+
+export function fetchQuiz(id) {
+  return async (dispatch, getState) => {
+    try {
+      const oneResponse = await axios.get(`${apiUrl}/quiz/${id}`);
+      dispatch(storeOneQuiz(oneResponse.data));
+    } catch (error) {
+      if (error.response) {
       } else {
         console.log(error.message);
       }
