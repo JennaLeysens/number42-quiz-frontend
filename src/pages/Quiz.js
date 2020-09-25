@@ -11,6 +11,7 @@ export default function Quiz() {
   console.log(user.quizzes);
   const [show, setShow] = useState(false);
   const { id } = useParams();
+  console.log("id", id);
 
   if (show === true) {
     return (
@@ -22,26 +23,22 @@ export default function Quiz() {
 
   return (
     <Box>
-      {id === user.quizzes
+      {user.quizzes
         ? user.quizzes.map((quiz) => {
             return (
               <Box>
-                {id === quiz.id ? (
-                  <Box>
-                    <Heading>Edition number {quiz.editionNumber}</Heading>
-                    <Heading as="h2" size="xl">
-                      Team: {quiz.teamMembers}
-                    </Heading>
-                    <Round></Round>
-                    <Box>
-                      <AnswerForm></AnswerForm>
-                    </Box>
-                    <Box>
-                      New answer
-                      <Button onClick={() => setShow(true)}>+</Button>
-                    </Box>{" "}
-                  </Box>
-                ) : null}
+                <Heading>Edition number {quiz.editionNumber}</Heading>
+                <Heading as="h2" size="xl">
+                  Team: {quiz.teamMembers}
+                </Heading>
+                <Round></Round>
+                <Box>
+                  <AnswerForm></AnswerForm>
+                </Box>
+                <Box>
+                  New answer
+                  <Button onClick={() => setShow(true)}>+</Button>
+                </Box>
               </Box>
             );
           })
