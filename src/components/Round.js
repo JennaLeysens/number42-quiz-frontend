@@ -8,7 +8,6 @@ export default function Round() {
   const [roundNumber, setRound] = useState();
   const dispatch = useDispatch();
   const { id } = useParams();
-  console.log(id);
   const quizId = id;
   console.log(quizId);
 
