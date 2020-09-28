@@ -1,20 +1,27 @@
 import React, { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Heading, Stack, Input, FormLabel, Button, Box } from "@chakra-ui/core";
 import "./AnswerForm.css";
 import { addAnswer } from "../store/User/actions";
 import { useParams } from "react-router-dom";
+import { selectUser } from "../store/User/selector";
 
 export default function AnswerForm() {
   const dispatch = useDispatch();
-  const { id, round } = useParams();
-  console.log(id, round);
+  const user = useSelector(selectUser);
+  const { id } = useParams();
   const [answer, setAnswer] = useState();
   const [points, setPoints] = useState();
   const [show, setShow] = useState(false);
 
   const quizId = id;
-  const roundId = round;
+  const rounds = user.quizDetails
+    ? user.quizDetails.rounds.map((quiz) => quiz.roundNumber)
+    : null;
+  console.log("rounds", rounds);
+  const latestRound = Math.max(...rounds);
+  console.log("latest", latestRound);
+  const roundId = latestRound;
 
   function submitForm() {
     dispatch(addAnswer(answer, points, roundId, quizId));
