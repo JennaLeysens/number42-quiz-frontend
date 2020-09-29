@@ -27,7 +27,7 @@ export default function Quiz() {
 
   const [addRound, setAddRound] = useState([]);
 
-  function newAnswer() {
+  function newRound() {
     setAddRound(addRound.concat(<Round key={addRound.length} />));
   }
 
@@ -42,7 +42,7 @@ export default function Quiz() {
       <Box>
         <Round></Round>
       </Box>
-      <Button onClick={newAnswer}>+</Button>Round
+      <Button onClick={newRound}>+</Button>Round
       {addRound}
     </Box>
   );
