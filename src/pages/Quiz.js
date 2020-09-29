@@ -36,10 +36,6 @@ export default function Quiz() {
       <Box>
         <Round></Round>
       </Box>
-      <Box>
-        New answer
-        <Button>+</Button>
-      </Box>
     </Box>
   );
 }
