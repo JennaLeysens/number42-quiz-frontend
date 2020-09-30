@@ -1,6 +1,14 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { Heading, Stack, Input, FormLabel, Button, Box } from "@chakra-ui/core";
+import { useSelector } from "react-redux";
+import {
+  Heading,
+  Stack,
+  Input,
+  FormLabel,
+  Text,
+  Button,
+  Box,
+} from "@chakra-ui/core";
 import AnswerForm from "../pages/AnswerForm";
 import { selectUser } from "../store/User/selector";
 
@@ -23,6 +31,11 @@ export default function Round() {
                 <Heading as="h5" size="sm">
                   Question {answer.id}
                 </Heading>
+                <Text>{answer.answer}</Text>
+                <Heading as="h5" size="sm">
+                  Points
+                </Heading>
+                <Text>{answer.points}</Text>
               </Box>
             );
           })
