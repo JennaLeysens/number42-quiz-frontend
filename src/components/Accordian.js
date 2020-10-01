@@ -8,23 +8,18 @@ import {
   Box,
 } from "@chakra-ui/core";
 
-export default function Accordian() {
+export default function Accordian(props) {
   return (
     <Box>
-      <Accordion>
+      <Accordion allowMultiple>
         <AccordionItem>
-          <AccordionHeader>
+          <AccordionHeader _expanded={{ bg: "tomato", color: "white" }}>
             <Box flex="1" textAlign="left">
-              Section 1 title
+              Round {props.id}
             </Box>
             <AccordionIcon />
           </AccordionHeader>
-          <AccordionPanel pb={4}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
-          </AccordionPanel>
+          <AccordionPanel pb={4}></AccordionPanel>
         </AccordionItem>
       </Accordion>
     </Box>
