@@ -1,16 +1,9 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import {
-  Heading,
-  Stack,
-  Input,
-  FormLabel,
-  Text,
-  Button,
-  Box,
-} from "@chakra-ui/core";
+import { Heading, Text, Button, Box } from "@chakra-ui/core";
 import AnswerForm from "../pages/AnswerForm";
 import { selectUser } from "../store/User/selector";
+import Accordian from "./Accordian";
 
 export default function Round() {
   const [addAnswer, setAddAnswer] = useState([]);
