@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Heading, Box, Button } from "@chakra-ui/core";
+import { Heading, Box, Button, Text } from "@chakra-ui/core";
 import { selectUser } from "../store/User/selector";
 import { useParams } from "react-router-dom";
 import { fetchQuiz } from "../store/User/actions";
@@ -39,6 +39,19 @@ export default function Quiz() {
     <Box>
       <Heading>Edition number {quiz.editionNumber}</Heading>
       <Heading marginBottom={5} as="h2" size="xl"></Heading>
+      <Box>
+        {quiz.rounds
+          ? quiz.rounds.map((round) => {
+              return (
+                <Box>
+                  <Heading as="h5" size="sm">
+                    Round {round.id}
+                  </Heading>
+                </Box>
+              );
+            })
+          : null}
+      </Box>
       <Box>
         <Round></Round>
       </Box>
