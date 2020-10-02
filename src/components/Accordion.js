@@ -10,7 +10,8 @@ export default function Accordion(props) {
   const numbers = rounds.map((round) => {
     return round.roundNumber;
   });
-  console.log("NUM", numbers);
+  const answers = rounds ? rounds.answers : null;
+  console.log(answers);
 
   return (
     <Box>
