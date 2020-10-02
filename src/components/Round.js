@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import { Heading, Text, Button, Box } from "@chakra-ui/core";
 import AnswerForm from "../pages/AnswerForm";
 import { selectUser } from "../store/User/selector";
-import Accordian from "./Accordian";
+import Accordian from "./Accordion";
 
 export default function Round() {
   const [addAnswer, setAddAnswer] = useState([]);
@@ -17,6 +17,9 @@ export default function Round() {
   return (
     <Box>
       <Heading>Round</Heading>
+      <Accordian>
+        <p>Hello!</p>
+      </Accordian>
       {quiz.answers
         ? quiz.answers.map((answer) => {
             return (
