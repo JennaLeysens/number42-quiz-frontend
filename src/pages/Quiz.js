@@ -6,11 +6,11 @@ import { useParams } from "react-router-dom";
 import { fetchQuiz } from "../store/User/actions";
 import { addRound } from "../store/User/actions";
 import Round from "../components/Round";
+import Accordion from "../components/Accordion";
 
 export default function Quiz() {
   const { id } = useParams();
   const user = useSelector(selectUser);
-  console.log(user.quizDetails);
   const roundNumber = user.quizDetails
     ? user.quizDetails.rounds.length + 1
     : null;
@@ -44,9 +44,10 @@ export default function Quiz() {
           ? quiz.rounds.map((round) => {
               return (
                 <Box>
-                  <Heading as="h5" size="sm">
-                    Round {round.id}
+                  <Heading as="h4" size="md">
+                    Round {round.roundNumber}
                   </Heading>
+                  <Accordion></Accordion>
                 </Box>
               );
             })
