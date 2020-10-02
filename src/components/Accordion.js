@@ -15,7 +15,7 @@ export default function Accordion(props) {
         </Button>
       </Box>
 
-      <Box>Title</Box>
+      <Box>Round number</Box>
 
       <Box>Points</Box>
 

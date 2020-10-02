@@ -18,28 +18,14 @@ export default function Round() {
     <Box>
       <Heading>Round</Heading>
       <Accordian>
-        <p>Hello!</p>
+        <Text>Hello!</Text>
+        <Box>
+          <Heading marginBottom={3}>Add your answers here</Heading>
+          <AnswerForm></AnswerForm>
+          <Button onClick={newAnswer}>+</Button>Add answer
+          {addAnswer}
+        </Box>
       </Accordian>
-      {quiz.answers
-        ? quiz.answers.map((answer) => {
-            return (
-              <Box>
-                <Heading as="h5" size="sm">
-                  Question {answer.id}
-                </Heading>
-                <Text>{answer.answer}</Text>
-                <Heading as="h5" size="sm">
-                  Points
-                </Heading>
-                <Text>{answer.points}</Text>
-              </Box>
-            );
-          })
-        : null}
-      <Heading marginBottom={3}>Add your answers here</Heading>
-      <AnswerForm></AnswerForm>
-      <Button onClick={newAnswer}>+</Button>Add answer
-      {addAnswer}
     </Box>
   );
 }
