@@ -16,7 +16,6 @@ export default function Round() {
 
   return (
     <Box>
-      <Heading>Round</Heading>
       <Accordian>
         <Text>Hello!</Text>
         <Box>

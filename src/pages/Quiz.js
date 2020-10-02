@@ -6,6 +6,7 @@ import { useParams } from "react-router-dom";
 import { fetchQuiz } from "../store/User/actions";
 import { addRound } from "../store/User/actions";
 import Round from "../components/Round";
+import Accordion from "../components/Accordion";
 
 export default function Quiz() {
   const { id } = useParams();
@@ -44,9 +45,7 @@ export default function Quiz() {
           ? quiz.rounds.map((round) => {
               return (
                 <Box>
-                  <Heading as="h5" size="sm">
-                    Round {round.id}
-                  </Heading>
+                  <Accordion></Accordion>
                 </Box>
               );
             })
