@@ -48,7 +48,7 @@ export default function AnswerForm() {
         </Stack>
       </Box>
       <Button m={10} size="md" onClick={submitForm}>
-        Submit answers
+        Save answer
       </Button>
     </Box>
   );

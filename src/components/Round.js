@@ -17,12 +17,12 @@ export default function Round() {
   return (
     <Box>
       <Accordian>
-        <Text>Hello!</Text>
         <Box>
-          <Heading marginBottom={3}>Add your answers here</Heading>
-          <AnswerForm></AnswerForm>
+          <Heading marginBottom={3} as="h5" size="sm">
+            Add your answers
+          </Heading>
+          <AnswerForm></AnswerForm> {addAnswer}
           <Button onClick={newAnswer}>+</Button>Add answer
-          {addAnswer}
         </Box>
       </Accordian>
     </Box>
