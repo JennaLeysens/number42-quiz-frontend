@@ -20,9 +20,8 @@ export default function Round() {
         <Text>Hello!</Text>
         <Box>
           <Heading marginBottom={3}>Add your answers here</Heading>
-          <AnswerForm></AnswerForm>
+          <AnswerForm></AnswerForm> {addAnswer}
           <Button onClick={newAnswer}>+</Button>Add answer
-          {addAnswer}
         </Box>
       </Accordian>
     </Box>
