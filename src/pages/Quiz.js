@@ -34,6 +34,13 @@ export default function Quiz() {
     return <Heading>Loading...</Heading>;
   }
 
+  const roundsSorted = quiz.rounds
+    ? quiz.rounds.sort(function (a, b) {
+        return a.roundNumber - b.roundNumber;
+      })
+    : null;
+  console.log(roundsSorted);
+
   return (
     <Box>
       <Heading>Edition number {quiz.editionNumber}</Heading>
