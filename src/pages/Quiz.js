@@ -51,6 +51,7 @@ export default function Quiz() {
               const roundTotal = round.answers.reduce((acc, answer) => {
                 return acc + answer.points;
               }, 0);
+              console.log("hello");
               return (
                 <Box>
                   <Heading as="h4" size="md">
@@ -63,11 +64,9 @@ export default function Quiz() {
             })
           : null}
       </Box>
-      <Box>
-        <Round></Round>
-      </Box>
-      <Button onClick={newRound}>+</Button>Round
+      <Box></Box>
       {addRound}
+      <Button onClick={newRound}>+</Button>Round
     </Box>
   );
 }
