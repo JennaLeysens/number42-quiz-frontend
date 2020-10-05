@@ -1,17 +1,21 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { Heading, Button, Box, Icon } from "@chakra-ui/core";
+import { Button, Box, Icon } from "@chakra-ui/core";
 import { selectUser } from "../store/User/selector";
 
 export default function Accordion(props) {
   const [isShowing, setIsShowing] = useState(false);
   const user = useSelector(selectUser);
-  const rounds = user.quizDetails ? user.quizDetails.rounds : null;
-  const numbers = rounds.map((round) => {
-    return round.roundNumber;
-  });
-  const answers = rounds ? rounds.answers : null;
-  console.log(answers);
+  // const rounds = user.quizDetails ? user.quizDetails.rounds : null;
+  // const numbers = rounds.map((round) => {
+  //   return round.roundNumber;
+  // });
+  // const answers = rounds
+  //   ? rounds.map((round) => {
+  //       return round.answers;
+  //     })
+  //   : null;
+  // console.log("answers", answers);
 
   return (
     <Box>
@@ -24,8 +28,6 @@ export default function Accordion(props) {
           )}
         </Button>
       </Box>
-
-      <Box>Points</Box>
 
       {isShowing && <Box>{props.children}</Box>}
     </Box>

@@ -14,7 +14,6 @@ export default function Quiz() {
   const roundNumber = user.quizDetails
     ? user.quizDetails.rounds.length + 1
     : null;
-  console.log("new roundNumber", roundNumber);
   const dispatch = useDispatch();
   const quiz = user.quizDetails;
   const isLoading = !quiz;
@@ -42,12 +41,16 @@ export default function Quiz() {
       <Box>
         {quiz.rounds
           ? quiz.rounds.map((round) => {
+              const roundTotal = round.answers.reduce((acc, answer) => {
+                return acc + answer.points;
+              }, 0);
               return (
                 <Box>
                   <Heading as="h4" size="md">
                     Round {round.roundNumber}
                   </Heading>
                   <Accordion></Accordion>
+                  <Box>Points {roundTotal}</Box>
                 </Box>
               );
             })
