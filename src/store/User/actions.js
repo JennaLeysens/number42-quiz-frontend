@@ -122,7 +122,7 @@ export function addQuiz(editionNumber, date, teamMembers) {
   };
 }
 
-export function addRound(quizId, roundNumber) {
+export function addRound(quizId) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     console.log("action round");
@@ -131,7 +131,6 @@ export function addRound(quizId, roundNumber) {
         `${apiUrl}/round`,
         {
           quizId,
-          roundNumber,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
