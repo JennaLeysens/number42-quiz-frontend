@@ -110,7 +110,7 @@ export function addQuiz(editionNumber, date, teamMembers) {
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
-      dispatch(quizAdded(response.data));
+      dispatch(quizAdded(response.data.newQuiz));
       console.log("data", response.data);
     } catch (error) {
       if (error.response) {
