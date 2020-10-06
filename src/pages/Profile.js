@@ -8,17 +8,22 @@ export default function Profile() {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const quizzes = user.quizzes;
-  console.log("quizzes", quizzes);
 
   useEffect(() => {
     dispatch(fetchQuizzes());
   }, [dispatch]);
 
+  const quizzesSorted = quizzes
+    ? quizzes.sort(function (a, b) {
+        return a.editionNumber - b.editionNumber;
+      })
+    : null;
+
   return (
     <Box>
       <Heading>{user.name}'s quizzes</Heading>
-      {user.quizzes
-        ? user.quizzes.map((quiz) => {
+      {quizzesSorted
+        ? quizzesSorted.map((quiz) => {
             return (
               <Link href={`/quizzes/${quiz.id}`}>
                 <Box>

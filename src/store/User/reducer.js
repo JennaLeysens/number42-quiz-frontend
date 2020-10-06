@@ -21,7 +21,7 @@ export default function userSliceReducer(state = initialState, action) {
     case "QUIZ_ADDED":
       return {
         ...state,
-        quiz: action.payload,
+        quizzes: state.quizzes.concat(action.payload),
       };
     case "ROUND_ADDED":
       return {
