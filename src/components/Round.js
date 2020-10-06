@@ -16,15 +16,13 @@ export default function Round() {
 
   return (
     <Box>
-      <Accordian>
-        <Box>
-          <Heading marginBottom={3} as="h5" size="sm">
-            Add your answers
-          </Heading>
-          <AnswerForm></AnswerForm> {addAnswer}
-          <Button onClick={newAnswer}>+</Button>Add answer
-        </Box>
-      </Accordian>
+      <Box>
+        <Heading marginBottom={3} as="h5" size="sm">
+          Add your answers
+        </Heading>
+        <AnswerForm></AnswerForm> {addAnswer}
+        <Button onClick={newAnswer}>+</Button>Add answer
+      </Box>
     </Box>
   );
 }

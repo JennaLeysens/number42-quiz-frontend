@@ -11,9 +11,6 @@ import Accordion from "../components/Accordion";
 export default function Quiz() {
   const { id } = useParams();
   const user = useSelector(selectUser);
-  const roundNumber = user.quizDetails
-    ? user.quizDetails.rounds.length + 1
-    : null;
   const dispatch = useDispatch();
   const quiz = user.quizDetails;
   const isLoading = !quiz;
@@ -22,12 +19,12 @@ export default function Quiz() {
     dispatch(fetchQuiz(id));
   }, [dispatch, id]);
 
-  const quizId = id;
+  const quizId = quiz ? quiz.id : null;
 
-  const [addRound, setAddRound] = useState([]);
+  const [newRound, setAddRound] = useState([]);
 
-  function newRound() {
-    setAddRound(addRound.concat(<Round key={addRound.length} />));
+  function createRound() {
+    dispatch(addRound(quizId));
   }
 
   if (isLoading) {
@@ -48,16 +45,19 @@ export default function Quiz() {
       <Box>
         {quiz.rounds
           ? quiz.rounds.map((round) => {
-              const roundTotal = round.answers.reduce((acc, answer) => {
-                return acc + answer.points;
-              }, 0);
-              console.log("hello");
+              const roundTotal = round.answers
+                ? round.answers.reduce((acc, answer) => {
+                    return acc + answer.points;
+                  }, 0)
+                : null;
               return (
                 <Box>
                   <Heading as="h4" size="md">
                     Round {round.roundNumber}
                   </Heading>
-                  <Accordion></Accordion>
+                  <Accordion>
+                    <Round></Round>
+                  </Accordion>
                   <Box>Points {roundTotal}</Box>
                 </Box>
               );
@@ -65,8 +65,8 @@ export default function Quiz() {
           : null}
       </Box>
       <Box></Box>
-      {addRound}
-      <Button onClick={newRound}>+</Button>Round
+      {newRound}
+      <Button onClick={createRound}>+</Button>Round
     </Box>
   );
 }

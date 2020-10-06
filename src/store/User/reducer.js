@@ -19,19 +19,19 @@ export default function userSliceReducer(state = initialState, action) {
       localStorage.removeItem("token");
       return { ...initialState, token: null };
     case "QUIZ_ADDED":
-      console.log(action.payload);
       return {
         ...state,
         quiz: action.payload,
       };
     case "ROUND_ADDED":
-      console.log("round reducer", action.payload);
       return {
         ...state,
-        round: action.payload,
+        quizDetails: {
+          ...state.quizDetails,
+          rounds: state.quizDetails.rounds.concat(action.payload),
+        },
       };
     case "ANSWER_ADDED":
-      console.log("answer reducer", action.payload);
       return {
         ...state,
         answers: action.payload,
@@ -43,7 +43,6 @@ export default function userSliceReducer(state = initialState, action) {
         quizzes: action.payload,
       };
     case "FETCH_QUIZ":
-      console.log("quiz details reducer", action.payload);
       return {
         ...state,
         quizDetails: action.payload,
