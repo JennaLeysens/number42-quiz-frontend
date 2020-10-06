@@ -135,15 +135,8 @@ export function addRound(quizId) {
       { headers: { Authorization: `Bearer ${token}` } }
     );
     console.log("something new");
-    dispatch(roundAdded(response.data));
+    dispatch(roundAdded(response.data.newRound));
     console.log("round", response.data);
-    // } catch (error) {
-    // if (error.response) {
-    // console.log(error.response);
-    // } else {
-    // console.log(error.message);
-    // }
-    // }
   };
 }
 

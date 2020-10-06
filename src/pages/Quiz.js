@@ -15,8 +15,6 @@ export default function Quiz() {
   const quiz = user.quizDetails;
   const isLoading = !quiz;
 
-  console.log("rendering", user && user.quizDetails);
-
   useEffect(() => {
     dispatch(fetchQuiz(id));
   }, [dispatch, id]);
@@ -27,7 +25,6 @@ export default function Quiz() {
 
   function createRound() {
     dispatch(addRound(quizId));
-    console.log(quizId);
   }
 
   if (isLoading) {
@@ -52,8 +49,7 @@ export default function Quiz() {
                 ? round.answers.reduce((acc, answer) => {
                     return acc + answer.points;
                   }, 0)
-                : 0;
-              console.log("hello");
+                : null;
               return (
                 <Box>
                   <Heading as="h4" size="md">
