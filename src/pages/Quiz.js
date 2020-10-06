@@ -11,9 +11,10 @@ import Accordion from "../components/Accordion";
 export default function Quiz() {
   const { id } = useParams();
   const user = useSelector(selectUser);
-  const roundNumber = user.quizDetails
-    ? user.quizDetails.rounds.length + 1
-    : null;
+  const [roundNumber, setRoundNumber] = useState();
+  // const roundNumber = user.quizDetails
+  //   ? user.quizDetails.rounds.length + 1
+  //   : null;
   const dispatch = useDispatch();
   const quiz = user.quizDetails;
   const isLoading = !quiz;
@@ -22,12 +23,13 @@ export default function Quiz() {
     dispatch(fetchQuiz(id));
   }, [dispatch, id]);
 
-  const quizId = id;
+  const quizId = quiz.id;
 
   const [addRound, setAddRound] = useState([]);
 
   function newRound() {
-    setAddRound(addRound.concat(<Round key={addRound.length} />));
+    dispatch(addRound());
+    // setAddRound(addRound.concat(<Round key={addRound.length} />));
   }
 
   if (isLoading) {
