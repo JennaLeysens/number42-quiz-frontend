@@ -125,24 +125,25 @@ export function addQuiz(editionNumber, date, teamMembers) {
 export function addRound(quizId) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
-    console.log("action round");
-    try {
-      const response = await axios.post(
-        `${apiUrl}/round`,
-        {
-          quizId,
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      dispatch(roundAdded(response.data));
-      console.log("round", response.data);
-    } catch (error) {
-      if (error.response) {
-        console.log(error.response);
-      } else {
-        console.log(error.message);
-      }
-    }
+    console.log("action round 123");
+    // try {
+    const response = await axios.post(
+      `${apiUrl}/round`,
+      {
+        quizId,
+      },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    console.log("something new");
+    dispatch(roundAdded(response.data));
+    console.log("round", response.data);
+    // } catch (error) {
+    // if (error.response) {
+    // console.log(error.response);
+    // } else {
+    // console.log(error.message);
+    // }
+    // }
   };
 }
 

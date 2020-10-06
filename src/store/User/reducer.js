@@ -28,7 +28,10 @@ export default function userSliceReducer(state = initialState, action) {
       console.log("round reducer", action.payload);
       return {
         ...state,
-        round: action.payload,
+        quizDetails: {
+          ...state.quizDetails,
+          rounds: state.quizDetails.rounds.concat(action.payload),
+        },
       };
     case "ANSWER_ADDED":
       console.log("answer reducer", action.payload);
