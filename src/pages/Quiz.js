@@ -36,7 +36,6 @@ export default function Quiz() {
         return a.roundNumber - b.roundNumber;
       })
     : null;
-  console.log(roundsSorted);
 
   return (
     <Box>
