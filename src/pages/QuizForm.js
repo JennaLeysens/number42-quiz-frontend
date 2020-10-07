@@ -9,19 +9,21 @@ import { addQuiz } from "../store/User/actions";
 export default function QuizForm() {
   const [date, setDate] = useState(() => new Date());
   const [editionNumber, setEdition] = useState();
-  const [team1, setTeam1] = useState();
-  const [team2, setTeam2] = useState();
-  const [team3, setTeam3] = useState();
+  const [teamMembers, setTeamMembers] = useState([]);
   const history = useHistory();
   const dispatch = useDispatch();
-
-  const teamMembers = [team1, team2, team3];
 
   function submitForm() {
     dispatch(addQuiz(editionNumber, date, teamMembers));
     history.push("/quizzes");
   }
 
+  function newTeamMember() {
+    setTeamMembers(
+      teamMembers.concat(<Input key={teamMembers.length}></Input>)
+    );
+  }
+  console.log(teamMembers);
   return (
     <Box>
       <Heading>I'm starting a quiz!</Heading>
@@ -46,12 +48,16 @@ export default function QuizForm() {
           inline
         />
       </Stack>
-      <Stack>
-        <FormLabel>Team member(s)</FormLabel>
-        <Input value={team1} onChange={(e) => setTeam1(e.target.value)}></Input>
-        <Input value={team2} onChange={(e) => setTeam2(e.target.value)}></Input>
-        <Input value={team3} onChange={(e) => setTeam3(e.target.value)}></Input>
-      </Stack>
+      <Box>
+        <Box>
+          <Heading as="h4" size="md">
+            Team member(s)
+          </Heading>
+          <Input></Input>
+          {teamMembers}
+        </Box>
+        <Button onClick={newTeamMember}>+</Button> Add team member
+      </Box>
       <Button margin={5} onClick={submitForm}>
         Start quiz
       </Button>
