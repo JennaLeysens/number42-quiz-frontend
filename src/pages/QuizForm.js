@@ -19,11 +19,10 @@ export default function QuizForm() {
   }
 
   function newTeamMember() {
-    setTeamMembers(
-      teamMembers.concat(<Input key={teamMembers.length}></Input>)
-    );
+    setTeamMembers(teamMembers.concat(""));
+    console.log(teamMembers);
   }
-  console.log(teamMembers);
+
   return (
     <Box>
       <Heading>I'm starting a quiz!</Heading>
@@ -43,7 +42,6 @@ export default function QuizForm() {
           value={date}
           onChange={(nextValue) => {
             setDate(nextValue);
-            console.log(nextValue);
           }}
           inline
         />
@@ -53,8 +51,20 @@ export default function QuizForm() {
           <Heading as="h4" size="md">
             Team member(s)
           </Heading>
-          <Input></Input>
-          {teamMembers}
+          {teamMembers.map((teamMember, i) => {
+            return (
+              <Input
+                value={teamMember}
+                onChange={(e) => {
+                  const name = e.target.value;
+                  setTeamMembers((p) => {
+                    p[i] = name;
+                    return [...p];
+                  });
+                }}
+              ></Input>
+            );
+          })}
         </Box>
         <Button onClick={newTeamMember}>+</Button> Add team member
       </Box>
