@@ -31,11 +31,11 @@ export default function Quiz() {
     return <Heading>Loading...</Heading>;
   }
 
-  // const roundsSorted = quiz.rounds
-  //   ? quiz.rounds.sort(function (a, b) {
-  //       return a.roundNumber - b.roundNumber;
-  //     })
-  //   : null;
+  const roundsSorted = quiz.rounds
+    ? quiz.rounds.sort(function (a, b) {
+        return a.roundNumber - b.roundNumber;
+      })
+    : null;
 
   const rounds = quiz ? quiz.rounds : null;
 
@@ -64,8 +64,8 @@ export default function Quiz() {
       <Heading>Edition number {quiz.editionNumber}</Heading>
       <Heading marginBottom={5} as="h2" size="xl"></Heading>
       <Box>
-        {quiz.rounds
-          ? quiz.rounds.map((round) => {
+        {roundsSorted
+          ? roundsSorted.map((round) => {
               const roundTotal = round.answers
                 ? round.answers.reduce((acc, answer) => {
                     return acc + answer.points;
@@ -80,7 +80,7 @@ export default function Quiz() {
                   <Accordion>
                     <Round></Round>
                   </Accordion>
-                  <Box>Points {roundTotal}</Box>
+                  <Box marginTop={4}>Points {roundTotal}</Box>
                 </Box>
               );
             })
