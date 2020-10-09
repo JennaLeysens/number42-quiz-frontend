@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Heading, Box, Button, Input } from "@chakra-ui/core";
+import { Heading, Box, Button } from "@chakra-ui/core";
 import { selectUser } from "../store/User/selector";
 import { useParams } from "react-router-dom";
 import { fetchQuiz } from "../store/User/actions";
@@ -31,11 +31,36 @@ export default function Quiz() {
     return <Heading>Loading...</Heading>;
   }
 
-  const roundsSorted = quiz.rounds
-    ? quiz.rounds.sort(function (a, b) {
-        return a.roundNumber - b.roundNumber;
+  // const roundsSorted = quiz.rounds
+  //   ? quiz.rounds.sort(function (a, b) {
+  //       return a.roundNumber - b.roundNumber;
+  //     })
+  //   : null;
+
+  const rounds = quiz ? quiz.rounds : null;
+
+  const answers = rounds
+    ? rounds.map((round) => {
+        return round.answers;
       })
     : null;
+
+  const roundTotals = answers
+    ? answers.map((answers) => {
+        return answers.reduce((acc, answer) => {
+          return acc + answer.points;
+        }, 0);
+      })
+    : null;
+  console.log(roundTotals);
+
+  const points = roundTotals
+    ? roundTotals.reduce((acc, points) => {
+        return acc + points;
+      }, 0)
+    : null;
+
+  console.log("total", points);
 
   return (
     <Box>
@@ -49,6 +74,7 @@ export default function Quiz() {
                     return acc + answer.points;
                   }, 0)
                 : null;
+              console.log(roundTotal + roundTotal);
               return (
                 <Box>
                   <Heading as="h4" size="md">
@@ -65,6 +91,11 @@ export default function Quiz() {
       </Box>
       <Box></Box>
       {newRound}
+      <Box>
+        <Heading as="h5" size="sm">
+          Total points:{}
+        </Heading>
+      </Box>
       <Button onClick={createRound}>+</Button>Round
     </Box>
   );
