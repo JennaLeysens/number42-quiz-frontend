@@ -44,7 +44,7 @@ export default function Quiz() {
         return round.answers || [];
       })
     : null;
-
+  console.log("answers", answers);
   const roundTotals = answers
     ? answers.map((answers) => {
         console.log(answers);
@@ -53,13 +53,14 @@ export default function Quiz() {
         }, 0);
       })
     : null;
+  console.log("round", roundTotals);
 
   const totalPoints = roundTotals
     ? roundTotals.reduce((acc, points) => {
         return acc + points;
       }, 0)
     : null;
-
+  console.log("totalPoints", totalPoints);
   return (
     <Box>
       <Heading>Edition number {quiz.editionNumber}</Heading>

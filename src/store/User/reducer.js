@@ -34,9 +34,11 @@ export default function userSliceReducer(state = initialState, action) {
     case "ANSWER_ADDED":
       return {
         ...state,
-        answers: action.payload,
+        quizDetails: {
+          ...state.quizDetails,
+          answers: state.quizDetails.answers.concat(action.payload),
+        },
       };
-
     case "FETCH_QUIZZES":
       return {
         ...state,
