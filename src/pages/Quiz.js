@@ -41,12 +41,13 @@ export default function Quiz() {
 
   const answers = rounds
     ? rounds.map((round) => {
-        return round.answers;
+        return round.answers || [];
       })
     : null;
 
   const roundTotals = answers
     ? answers.map((answers) => {
+        console.log(answers);
         return answers.reduce((acc, answer) => {
           return acc + answer.points;
         }, 0);
