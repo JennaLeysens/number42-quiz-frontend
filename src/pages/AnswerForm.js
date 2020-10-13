@@ -15,9 +15,11 @@ export default function AnswerForm() {
 
   const quizId = id;
   const rounds = user.quizDetails
-    ? user.quizDetails.rounds.map((quiz) => quiz.roundNumber)
+    ? user.quizDetails.rounds.map((round) => round.id)
     : null;
+
   const latestRound = Math.max(...rounds);
+  console.log("latestRound", latestRound);
   const roundId = latestRound;
 
   function submitForm() {
