@@ -19,7 +19,7 @@ export default function AnswerForm() {
     : null;
 
   const latestRound = Math.max(...rounds);
-  console.log("latestRound", latestRound);
+
   const roundId = latestRound;
 
   function submitForm() {

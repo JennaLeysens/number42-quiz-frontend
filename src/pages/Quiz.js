@@ -14,14 +14,12 @@ export default function Quiz() {
   const dispatch = useDispatch();
   const quiz = user.quizDetails;
   const isLoading = !quiz;
+  const quizId = quiz ? quiz.id : null;
+  const [newRound, setAddRound] = useState([]);
 
   useEffect(() => {
     dispatch(fetchQuiz(id));
   }, [dispatch, id]);
-
-  const quizId = quiz ? quiz.id : null;
-
-  const [newRound, setAddRound] = useState([]);
 
   function createRound() {
     dispatch(addRound(quizId));
@@ -48,13 +46,12 @@ export default function Quiz() {
 
   const roundTotals = answers
     ? answers.map((answers) => {
-        console.log(answers);
         return answers.reduce((acc, answer) => {
           return acc + answer.points;
         }, 0);
       })
     : null;
-  console.log("round", roundTotals);
+  console.log("round totals", roundTotals);
 
   const totalPoints = roundTotals
     ? roundTotals.reduce((acc, points) => {
@@ -62,19 +59,19 @@ export default function Quiz() {
       }, 0)
     : null;
   console.log("totalPoints", totalPoints);
+
   return (
     <Box>
       <Heading>Edition number {quiz.editionNumber}</Heading>
       <Heading marginBottom={5} as="h2" size="xl"></Heading>
       <Box>
-        {roundsSorted
-          ? roundsSorted.map((round) => {
+        {rounds
+          ? rounds.map((round) => {
               const roundTotal = round.answers
                 ? round.answers.reduce((acc, answer) => {
                     return acc + answer.points;
                   }, 0)
                 : null;
-              console.log(roundTotal + roundTotal);
               return (
                 <Box>
                   <Heading as="h4" size="md">
