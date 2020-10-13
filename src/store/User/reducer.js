@@ -23,6 +23,12 @@ export default function userSliceReducer(state = initialState, action) {
         ...state,
         quizzes: state.quizzes.concat(action.payload),
       };
+    case "FETCH_QUIZ":
+      console.log("quiz re", action.payload);
+      return {
+        ...state,
+        quizDetails: action.payload,
+      };
     case "ROUND_ADDED":
       return {
         ...state,
@@ -34,19 +40,25 @@ export default function userSliceReducer(state = initialState, action) {
     case "ANSWER_ADDED":
       return {
         ...state,
-        answers: action.payload,
+        quizDetails: {
+          ...state.quizDetails,
+          rounds: state.quizDetails.rounds.map((round) => {
+            return {
+              ...round,
+              answers:
+                round.id === action.payload.roundId
+                  ? round.answers.concat(action.payload)
+                  : round.answers,
+            };
+          }),
+        },
       };
-
     case "FETCH_QUIZZES":
       return {
         ...state,
         quizzes: action.payload,
       };
-    case "FETCH_QUIZ":
-      return {
-        ...state,
-        quizDetails: action.payload,
-      };
+
     default:
       return state;
   }
