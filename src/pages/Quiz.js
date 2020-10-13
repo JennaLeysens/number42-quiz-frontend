@@ -38,6 +38,7 @@ export default function Quiz() {
     : null;
 
   const rounds = quiz ? quiz.rounds : null;
+  console.log(rounds);
 
   const answers = rounds
     ? rounds.map((round) => {
