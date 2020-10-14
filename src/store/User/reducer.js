@@ -1,3 +1,5 @@
+import { bindActionCreators } from "redux";
+
 const initialState = {
   token: localStorage.getItem("token"),
   user: null,
@@ -55,7 +57,22 @@ export default function userSliceReducer(state = initialState, action) {
       };
 
     case "UPDATE_ANSWER":
-      return {};
+      return {
+        ...state,
+        quizDetails: {
+          ...state.quizDetails,
+          rounds: state.quizDetails.rounds.map((round) => {
+            return {
+              ...round,
+              answers: round.answers.map((answer) => {
+                return answer.id === action.payload.id
+                  ? action.payload
+                  : round.answer;
+              }),
+            };
+          }),
+        },
+      };
 
     case "FETCH_QUIZZES":
       return {
