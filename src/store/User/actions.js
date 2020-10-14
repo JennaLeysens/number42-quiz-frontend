@@ -34,6 +34,10 @@ export function storeOneQuiz(data) {
   return { type: "FETCH_QUIZ", payload: data };
 }
 
+export function answerUpdated(data) {
+  return { type: "UPDATE_ANSWER", payload: data };
+}
+
 export function login(email, password) {
   return async (dispatch, getState) => {
     try {
@@ -156,6 +160,32 @@ export function addAnswer(answer, points, roundId, quizId) {
       );
       dispatch(answerAdded(response.data.newAnswer));
       console.log("answer", response.data);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+}
+
+export function updateAnswer(answer, points, roundId, quizId) {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+    try {
+      const response = await axios.patch(
+        `${apiUrl}/answer`,
+        {
+          answer,
+          points,
+          roundId,
+          quizId,
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      dispatch(answerUpdated(response.data.updatedAnswer));
+      console.log("updated", response.data);
     } catch (error) {
       if (error.response) {
         console.log(error.response);

@@ -53,6 +53,10 @@ export default function userSliceReducer(state = initialState, action) {
           }),
         },
       };
+
+    case "UPDATE_ANSWER":
+      return {};
+
     case "FETCH_QUIZZES":
       return {
         ...state,
