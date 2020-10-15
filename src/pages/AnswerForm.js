@@ -6,12 +6,14 @@ import { addAnswer } from "../store/User/actions";
 import { useParams } from "react-router-dom";
 import { selectUser } from "../store/User/selector";
 
-export default function AnswerForm() {
+export default function AnswerForm({ initialValue }) {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const quiz = user.quizDetails;
   const { id } = useParams();
-  const [answer, setAnswer] = useState();
-  const [points, setPoints] = useState();
+
+  const [answer, setAnswer] = useState(initialValue.answer);
+  const [points, setPoints] = useState(initialValue.points);
 
   const quizId = id;
   const rounds = user.quizDetails

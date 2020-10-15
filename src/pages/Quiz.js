@@ -51,14 +51,14 @@ export default function Quiz() {
         }, 0);
       })
     : null;
-  console.log("round totals", roundTotals);
+  // console.log("round totals", roundTotals);
 
   const totalPoints = roundTotals
     ? roundTotals.reduce((acc, points) => {
         return acc + points;
       }, 0)
     : null;
-  console.log("totalPoints", totalPoints);
+  // console.log("totalPoints", totalPoints);
 
   return (
     <Box>
@@ -78,7 +78,7 @@ export default function Quiz() {
                     Round {round.roundNumber}
                   </Heading>
                   <Accordion>
-                    <Round></Round>
+                    <Round round={round}></Round>
                   </Accordion>
                   <Box marginTop={4}>Points {roundTotal}</Box>
                 </Box>
