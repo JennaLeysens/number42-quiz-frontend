@@ -37,17 +37,17 @@ export default function Quiz() {
 
   const rounds = quiz ? quiz.rounds : null;
 
-  const answers = rounds
+  const answersArrayofArrays = rounds
     ? rounds.map((round) => {
         return round.answers || [];
       })
     : null;
-  console.log("answers", answers);
 
-  const roundTotals = answers
-    ? answers.map((answers) => {
+  const roundTotals = answersArrayofArrays
+    ? answersArrayofArrays.map((answers) => {
+        console.log("answers map", answers);
         return answers.reduce((acc, answer) => {
-          return acc + answer.points;
+          return acc + answer.points || [];
         }, 0);
       })
     : null;
@@ -58,7 +58,7 @@ export default function Quiz() {
         return acc + points;
       }, 0)
     : null;
-  console.log("totalPoints", totalPoints);
+  // console.log("totalPoints", totalPoints);
 
   return (
     <Box>
@@ -78,7 +78,7 @@ export default function Quiz() {
                     Round {round.roundNumber}
                   </Heading>
                   <Accordion>
-                    <Round></Round>
+                    <Round round={round}></Round>
                   </Accordion>
                   <Box marginTop={4}>Points {roundTotal}</Box>
                 </Box>

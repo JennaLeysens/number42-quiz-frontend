@@ -34,6 +34,14 @@ export function storeOneQuiz(data) {
   return { type: "FETCH_QUIZ", payload: data };
 }
 
+export function answerUpdated(data) {
+  return { type: "UPDATE_ANSWER", payload: data };
+}
+
+export function answerDeleted(data) {
+  return { type: "DELETE_ANSWER", payload: data };
+}
+
 export function login(email, password) {
   return async (dispatch, getState) => {
     try {
@@ -166,6 +174,33 @@ export function addAnswer(answer, points, roundId, quizId) {
   };
 }
 
+export function updateAnswer(answer, points, roundId, quizId, answerId) {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+    try {
+      const response = await axios.patch(
+        `${apiUrl}/update`,
+        {
+          answer,
+          points,
+          roundId,
+          quizId,
+          answerId,
+        },
+        { headers: { Authorization: `Bearer ${token}` } }
+      );
+      dispatch(answerUpdated(response.data.updatedAnswer));
+      console.log("updated", response.data);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+}
+
 export function fetchQuizzes() {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
@@ -174,9 +209,27 @@ export function fetchQuizzes() {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(storeQuizzes(response.data));
-      console.log("quizzes", response.data);
     } catch (error) {
       if (error.response) {
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+}
+
+export function deleteAnswer(answerId) {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+    try {
+      const response = await axios.delete(`${apiUrl}/quizzes/${answerId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      dispatch(answerDeleted(response.data.deletedAnswer));
+      console.log("deleted", response.data);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
       } else {
         console.log(error.message);
       }

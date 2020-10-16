@@ -1,3 +1,5 @@
+import { bindActionCreators } from "redux";
+
 const initialState = {
   token: localStorage.getItem("token"),
   user: null,
@@ -53,6 +55,35 @@ export default function userSliceReducer(state = initialState, action) {
           }),
         },
       };
+
+    case "UPDATE_ANSWER":
+      return {
+        ...state,
+        quizDetails: {
+          ...state.quizDetails,
+          rounds: state.quizDetails.rounds.map((round) => {
+            return {
+              ...round,
+              answers: round.answers.map((answer) => {
+                return answer.id === action.payload.id
+                  ? action.payload
+                  : answer;
+              }),
+            };
+          }),
+        },
+      };
+
+    case "DELETE_ANSWER": {
+      const answerId = action.payload.id;
+      const newAnswers = state.quizDetails.rounds.map((round) => {
+        return round.answers.filter((answer) => answer.id !== answerId);
+      });
+      return {
+        ...state,
+        answers: newAnswers,
+      };
+    }
     case "FETCH_QUIZZES":
       return {
         ...state,
