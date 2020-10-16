@@ -67,7 +67,7 @@ export default function userSliceReducer(state = initialState, action) {
               answers: round.answers.map((answer) => {
                 return answer.id === action.payload.id
                   ? action.payload
-                  : round.answer;
+                  : answer;
               }),
             };
           }),

@@ -37,21 +37,21 @@ export default function Quiz() {
 
   const rounds = quiz ? quiz.rounds : null;
 
-  const answers = rounds
+  const answersArrayofArrays = rounds
     ? rounds.map((round) => {
         return round.answers || [];
       })
     : null;
-  console.log("answers", answers);
 
-  const roundTotals = answers
-    ? answers.map((answers) => {
+  const roundTotals = answersArrayofArrays
+    ? answersArrayofArrays.map((answers) => {
+        console.log("answers map", answers);
         return answers.reduce((acc, answer) => {
           return acc + answer.points || [];
         }, 0);
       })
     : null;
-  // console.log("round totals", roundTotals);
+  console.log("round totals", roundTotals);
 
   const totalPoints = roundTotals
     ? roundTotals.reduce((acc, points) => {

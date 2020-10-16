@@ -21,13 +21,10 @@ export default function AnswerForm({ initialValue }) {
     ? user.quizDetails.rounds.map((round) => round.id)
     : null;
 
-  const latestRound = Math.max(...rounds);
-
-  const roundId = latestRound;
+  const roundId = initialValue.roundId;
 
   function submitForm() {
     dispatch(updateAnswer(answer, points, roundId, quizId, answerId));
-    console.log("upating answer", answer, points, roundId, quizId, answerId);
   }
 
   return (

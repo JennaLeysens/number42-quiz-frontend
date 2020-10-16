@@ -20,19 +20,6 @@ export default function Round({ round }) {
       })
     : null;
 
-  const answerText = answers.flat();
-
-  const [points, setPoints] = useState();
-
-  const quizId = id;
-  const rounds = user.quizDetails
-    ? user.quizDetails.rounds.map((round) => round.id)
-    : null;
-
-  const latestRound = Math.max(...rounds);
-
-  const roundId = latestRound;
-
   const [addAnswer, setAddAnswer] = useState([]);
 
   return (
