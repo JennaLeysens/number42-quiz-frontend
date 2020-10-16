@@ -38,6 +38,10 @@ export function answerUpdated(data) {
   return { type: "UPDATE_ANSWER", payload: data };
 }
 
+export function answerDeleted(data) {
+  return { type: "DELETE_ANSWER", payload: data };
+}
+
 export function login(email, password) {
   return async (dispatch, getState) => {
     try {
@@ -207,6 +211,25 @@ export function fetchQuizzes() {
       console.log("quizzes", response.data);
     } catch (error) {
       if (error.response) {
+      } else {
+        console.log(error.message);
+      }
+    }
+  };
+}
+
+export function deleteAnsweer(answerId) {
+  return async (dispatch, getState) => {
+    const token = selectToken(getState());
+    try {
+      const response = await axios.destroy(`${apiUrl}/quizzes/${answerId}`, {
+        headers: { Authorization: `Bearer ${token}` },
+      });
+      dispatch(answerDeleted(response.data.deletedAnswer));
+      console.log("deleted", response.data);
+    } catch (error) {
+      if (error.response) {
+        console.log(error.response);
       } else {
         console.log(error.message);
       }
