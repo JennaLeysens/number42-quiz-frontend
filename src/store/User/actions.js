@@ -174,17 +174,18 @@ export function addAnswer(answer, points, roundId, quizId) {
   };
 }
 
-export function updateAnswer(answer, points, roundId, quizId) {
+export function updateAnswer(answer, points, roundId, quizId, answerId) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     try {
       const response = await axios.patch(
-        `${apiUrl}/answer`,
+        `${apiUrl}/update`,
         {
           answer,
           points,
           roundId,
           quizId,
+          answerId,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -208,7 +209,6 @@ export function fetchQuizzes() {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(storeQuizzes(response.data));
-      console.log("quizzes", response.data);
     } catch (error) {
       if (error.response) {
       } else {
@@ -218,11 +218,11 @@ export function fetchQuizzes() {
   };
 }
 
-export function deleteAnsweer(answerId) {
+export function deleteAnswer(answerId) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     try {
-      const response = await axios.destroy(`${apiUrl}/quizzes/${answerId}`, {
+      const response = await axios.delete(`${apiUrl}/quizzes/${answerId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(answerDeleted(response.data.deletedAnswer));
