@@ -74,6 +74,16 @@ export default function userSliceReducer(state = initialState, action) {
         },
       };
 
+    case "DELETE_ANSWER": {
+      const answerId = action.payload.id;
+      const newAnswers = state.quizDetails.rounds.map((round) => {
+        return round.answers.filter((answer) => answer.id !== answerId);
+      });
+      return {
+        ...state,
+        answers: newAnswers,
+      };
+    }
     case "FETCH_QUIZZES":
       return {
         ...state,
