@@ -14,13 +14,17 @@ export default function Round({ round }) {
   const { id } = useParams();
   const quizRounds = quiz ? quiz.rounds : null;
 
-  const answers = quizRounds
-    ? quizRounds.map((round) => {
-        return round.answers || [];
-      })
-    : null;
+  // const [addAnswer] = useState([]);
+  const [answer, setAnswer] = useState("");
+  const [points, setPoints] = useState(null);
+  const [answerId, setAnswerId] = useState("");
 
-  const [addAnswer, setAddAnswer] = useState([]);
+  const quizId = id;
+  const roundId = round.id;
+
+  function newAnswer() {
+    dispatch(addAnswer(answer, points, roundId, quizId));
+  }
 
   return (
     <Box>
@@ -33,7 +37,8 @@ export default function Round({ round }) {
             return <AnswerForm initialValue={answer}></AnswerForm>;
           })}
         {addAnswer}
-        <Button>+</Button>Add answer
+        <Button onClick={newAnswer}>+</Button>
+        Add answer
       </Box>
     </Box>
   );
