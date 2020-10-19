@@ -151,26 +151,19 @@ export function addRound(quizId) {
 export function addAnswer(answer, points, roundId, quizId) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
-    try {
-      const response = await axios.post(
-        `${apiUrl}/answer`,
-        {
-          answer,
-          points,
-          roundId,
-          quizId,
-        },
-        { headers: { Authorization: `Bearer ${token}` } }
-      );
-      dispatch(answerAdded(response.data.newAnswer));
-      console.log("answer", response.data);
-    } catch (error) {
-      if (error.response) {
-        console.log(error.response);
-      } else {
-        console.log(error.message);
-      }
-    }
+
+    const response = await axios.post(
+      `${apiUrl}/answer`,
+      {
+        answer,
+        points,
+        roundId,
+        quizId,
+      },
+      { headers: { Authorization: `Bearer ${token}` } }
+    );
+    dispatch(answerAdded(response.data.newAnswer));
+    console.log("answer", response.data);
   };
 }
 
