@@ -1,26 +1,18 @@
 import React, { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Stack, Input, FormLabel, Button, Box } from "@chakra-ui/core";
 import "./AnswerForm.css";
-import { addAnswer, updateAnswer, deleteAnswer } from "../store/User/actions";
+import { updateAnswer } from "../store/User/actions";
 import { useParams } from "react-router-dom";
-import { selectUser } from "../store/User/selector";
 
 export default function AnswerForm({ initialValue }) {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
-  const quiz = user.quizDetails;
   const { id } = useParams();
-
   const [answer, setAnswer] = useState(initialValue.answer);
   const [points, setPoints] = useState(initialValue.points);
   const [answerId, setAnswerId] = useState(initialValue.id);
 
   const quizId = id;
-  const rounds = user.quizDetails
-    ? user.quizDetails.rounds.map((round) => round.id)
-    : null;
-
   const roundId = initialValue.roundId;
 
   function submitForm() {
@@ -48,7 +40,7 @@ export default function AnswerForm({ initialValue }) {
       </Box>
       <Button m={10} size="md" onClick={submitForm}>
         Save answer
-      </Button>{" "}
+      </Button>
     </Box>
   );
 }
