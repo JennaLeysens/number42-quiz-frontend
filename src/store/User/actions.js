@@ -38,8 +38,8 @@ export function answerUpdated(data) {
   return { type: "UPDATE_ANSWER", payload: data };
 }
 
-export function answerDeleted(data) {
-  return { type: "DELETE_ANSWER", payload: data };
+export function quizDeleted(data) {
+  return { type: "DELETE_QUIZ", payload: data };
 }
 
 export function login(email, password) {
@@ -211,14 +211,14 @@ export function fetchQuizzes() {
   };
 }
 
-export function deleteAnswer(answerId) {
+export function deleteQuiz(quizId) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     try {
-      const response = await axios.delete(`${apiUrl}/quizzes/${answerId}`, {
+      const response = await axios.delete(`${apiUrl}/quizzes/${quizId}`, {
         headers: { Authorization: `Bearer ${token}` },
       });
-      dispatch(answerDeleted(response.data.deletedAnswer));
+      dispatch(quizDeleted(response.data.deletedQuiz));
       console.log("deleted", response.data);
     } catch (error) {
       if (error.response) {

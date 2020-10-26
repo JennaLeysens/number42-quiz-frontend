@@ -20,7 +20,6 @@ export default function QuizForm() {
 
   function newTeamMember() {
     setTeamMembers(teamMembers.concat(""));
-    console.log(teamMembers);
   }
 
   return (
