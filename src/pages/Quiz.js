@@ -45,9 +45,8 @@ export default function Quiz() {
 
   const roundTotals = answersArrayofArrays
     ? answersArrayofArrays.map((answers) => {
-        console.log("answers map", answers);
         return answers.reduce((acc, answer) => {
-          return acc + answer.points || [];
+          return acc + answer.points || 0;
         }, 0);
       })
     : null;

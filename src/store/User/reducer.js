@@ -49,7 +49,7 @@ export default function userSliceReducer(state = initialState, action) {
               ...round,
               answers:
                 round.id === action.payload.roundId
-                  ? round.answers.concat(action.payload)
+                  ? (round.answers || []).concat(action.payload)
                   : round.answers,
             };
           }),
