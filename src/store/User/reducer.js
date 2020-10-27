@@ -76,9 +76,7 @@ export default function userSliceReducer(state = initialState, action) {
 
     case "DELETE_QUIZ": {
       const quizId = action.payload.id;
-      const newQuizzes = state.user.quizzes.map((quiz) => {
-        return quiz.filter((quiz) => quiz.id !== quizId);
-      });
+      const newQuizzes = state.quizzes.filter((quiz) => quiz.id !== quizId);
       return {
         ...state,
         quizzes: newQuizzes,
