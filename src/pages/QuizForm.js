@@ -20,7 +20,6 @@ export default function QuizForm() {
 
   function newTeamMember() {
     setTeamMembers(teamMembers.concat(""));
-    console.log(teamMembers);
   }
 
   return (
@@ -66,7 +65,7 @@ export default function QuizForm() {
             );
           })}
         </Box>
-        <Button onClick={newTeamMember}>+</Button> Add team member
+        <Button onClick={newTeamMember}>+</Button> New team member
       </Box>
       <Button margin={5} onClick={submitForm}>
         Start quiz

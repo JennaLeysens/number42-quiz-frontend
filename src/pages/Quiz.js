@@ -57,7 +57,6 @@ export default function Quiz() {
         return acc + points;
       }, 0)
     : null;
-  // console.log("totalPoints", totalPoints);
 
   return (
     <Box>

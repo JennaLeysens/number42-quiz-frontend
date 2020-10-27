@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import { Box, Heading, Link } from "@chakra-ui/core";
-import { fetchQuizzes } from "../store/User/actions";
+import { Box, Heading, Link, Button } from "@chakra-ui/core";
+import { fetchQuizzes, deleteQuiz } from "../store/User/actions";
 import { selectUser } from "../store/User/selector";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -25,11 +25,18 @@ export default function Profile() {
       {quizzesSorted
         ? quizzesSorted.map((quiz) => {
             return (
-              <Link href={`/quizzes/${quiz.id}`}>
-                <Box>
-                  Edition number: {quiz.editionNumber} Team: {quiz.teamMembers}
-                </Box>
-              </Link>
+              <Box>
+                <Link href={`/quizzes/${quiz.id}`}>
+                  <Box>
+                    Edition number: {quiz.editionNumber} Team:{" "}
+                    {quiz.teamMembers.join(", ")}
+                    {console.log(quiz)}
+                  </Box>
+                </Link>
+                <Button size="xs" onClick={() => dispatch(deleteQuiz(quiz.id))}>
+                  Delete quiz
+                </Button>
+              </Box>
             );
           })
         : null}
