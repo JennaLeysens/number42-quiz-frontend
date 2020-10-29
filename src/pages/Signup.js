@@ -50,7 +50,7 @@ export default function Signup() {
           onChange={(e) => setPassword(e.target.value)}
         ></Input>
       </FormControl>
-      <Button margin={5} onClick={submitForm}>
+      <Button variantColor="red" margin={5} onClick={submitForm}>
         Create account
       </Button>
     </Box>

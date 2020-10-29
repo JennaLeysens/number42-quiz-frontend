@@ -85,7 +85,10 @@ export default function Quiz() {
           : null}
       </Box>
       <Box marginTop={4}> {newRound}</Box>
-      <Button onClick={createRound}>+</Button>Round
+      <Button variantColor="red" onClick={createRound}>
+        +
+      </Button>
+      Round
       <Box marginTop={4}>
         <Heading as="h4" size="md">
           Total points:{totalPoints}

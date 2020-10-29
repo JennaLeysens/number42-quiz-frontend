@@ -43,7 +43,9 @@ export default function Login() {
           onChange={(e) => setPassword(e.target.value)}
         ></Input>
       </FormControl>
-      <Button onClick={submitForm}>Login</Button>
+      <Button variantColor="red" onClick={submitForm}>
+        Login
+      </Button>
     </Box>
   );
 }

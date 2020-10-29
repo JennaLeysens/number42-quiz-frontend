@@ -219,6 +219,7 @@ export function deleteQuiz(quizId) {
         headers: { Authorization: `Bearer ${token}` },
       });
       dispatch(quizDeleted(response.data.deletedQuiz));
+      dispatch(fetchQuizzes());
       console.log("deleted", response.data);
     } catch (error) {
       if (error.response) {

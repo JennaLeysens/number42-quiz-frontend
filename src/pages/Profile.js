@@ -28,12 +28,15 @@ export default function Profile() {
               <Box>
                 <Link href={`/quizzes/${quiz.id}`}>
                   <Box>
-                    Edition number: {quiz.editionNumber} Team:{" "}
+                    Edition number: {quiz.editionNumber} Team:
                     {quiz.teamMembers.join(", ")}
-                    {console.log(quiz)}
                   </Box>
                 </Link>
-                <Button size="xs" onClick={() => dispatch(deleteQuiz(quiz.id))}>
+                <Button
+                  variantColor="red"
+                  size="xs"
+                  onClick={() => dispatch(deleteQuiz(quiz.id))}
+                >
                   Delete quiz
                 </Button>
               </Box>

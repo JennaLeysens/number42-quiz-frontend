@@ -67,7 +67,7 @@ export default function QuizForm() {
         </Box>
         <Button onClick={newTeamMember}>+</Button> New team member
       </Box>
-      <Button margin={5} onClick={submitForm}>
+      <Button variantColor="red" margin={5} onClick={submitForm}>
         Start quiz
       </Button>
     </Box>
