@@ -7,7 +7,7 @@ export default function Accordion(props) {
   return (
     <Box>
       <Box>
-        <Button onClick={() => setIsShowing((v) => !v)}>
+        <Button variantColor="red" onClick={() => setIsShowing((v) => !v)}>
           {isShowing ? (
             <Icon name="chevron-down" size="24px" />
           ) : (

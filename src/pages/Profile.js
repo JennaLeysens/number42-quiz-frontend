@@ -33,7 +33,11 @@ export default function Profile() {
                     {console.log(quiz)}
                   </Box>
                 </Link>
-                <Button size="xs" onClick={() => dispatch(deleteQuiz(quiz.id))}>
+                <Button
+                  variantColor="red"
+                  size="xs"
+                  onClick={() => dispatch(deleteQuiz(quiz.id))}
+                >
                   Delete quiz
                 </Button>
               </Box>

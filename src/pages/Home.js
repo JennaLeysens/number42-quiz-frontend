@@ -13,7 +13,7 @@ export default function Home() {
         <Heading p={6} as="h3" size="lg">
           Keep track of your quiz answers and score!
         </Heading>
-        <Button m={3} onClick={() => history.push("/quiz")}>
+        <Button variantColor="red" m={3} onClick={() => history.push("/quiz")}>
           Start keeping score!
         </Button>
       </div>

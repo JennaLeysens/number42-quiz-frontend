@@ -32,7 +32,9 @@ export default function Round({ round }) {
             return <AnswerForm initialValue={answer}></AnswerForm>;
           })}
         {addAnswer}
-        <Button onClick={newAnswer}>+</Button>
+        <Button variantColor="teal" onClick={newAnswer}>
+          +
+        </Button>
         Add answer
       </Box>
     </Box>
