@@ -90,7 +90,6 @@ export default function userSliceReducer(state = initialState, action) {
     }
 
     case "FETCH_QUIZZES":
-      console.log("REDUCER?", action.payload);
       return {
         ...state,
         quizzes: action.payload,
