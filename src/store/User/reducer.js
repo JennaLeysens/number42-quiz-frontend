@@ -15,22 +15,27 @@ export default function userSliceReducer(state = initialState, action) {
     case "LOGIN-SUCCESS":
       localStorage.setItem("token", action.payload.token);
       return { ...state, ...action.payload, errorMessage: null };
+
     case "TOKEN_STILL_VALID":
       return { ...state, ...action.payload };
+
     case "LOG_OUT":
       localStorage.removeItem("token");
       return { ...initialState, token: null };
+
     case "QUIZ_ADDED":
       return {
         ...state,
         quizzes: state.quizzes.concat(action.payload),
       };
+
     case "FETCH_QUIZ":
       console.log("quiz re", action.payload);
       return {
         ...state,
         quizDetails: action.payload,
       };
+
     case "ROUND_ADDED":
       return {
         ...state,
@@ -39,6 +44,7 @@ export default function userSliceReducer(state = initialState, action) {
           rounds: state.quizDetails.rounds.concat(action.payload),
         },
       };
+
     case "ANSWER_ADDED":
       return {
         ...state,
@@ -82,7 +88,9 @@ export default function userSliceReducer(state = initialState, action) {
         quizzes: newQuizzes,
       };
     }
+
     case "FETCH_QUIZZES":
+      console.log("REDUCER?", action.payload);
       return {
         ...state,
         quizzes: action.payload,

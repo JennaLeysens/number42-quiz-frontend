@@ -28,9 +28,8 @@ export default function Profile() {
               <Box>
                 <Link href={`/quizzes/${quiz.id}`}>
                   <Box>
-                    Edition number: {quiz.editionNumber} Team:{" "}
+                    Edition number: {quiz.editionNumber} Team:
                     {quiz.teamMembers.join(", ")}
-                    {console.log(quiz)}
                   </Box>
                 </Link>
                 <Button
