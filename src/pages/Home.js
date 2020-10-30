@@ -8,9 +8,14 @@ export default function Home() {
   const history = useHistory();
 
   return (
-    <Box>
-      <Image className="backgroundImage" position="absolute" src={map}></Image>
-      <Box position="relative">
+    <Box
+      className="contentContainer"
+      style={{
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url("${map}")`,
+      }}
+    >
+      <Box style={{ paddingTop: "200px" }}>
         <Heading p={6} as="h3" size="lg">
           Keep track of your quiz answers and score!
         </Heading>
