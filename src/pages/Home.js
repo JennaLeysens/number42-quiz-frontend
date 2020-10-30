@@ -13,12 +13,12 @@ export default function Home() {
       style={{
         backgroundRepeat: "no-repeat",
         backgroundImage: `url("${map}")`,
+        backgroundPositionX: "center",
+        backgroundPositionY: "center",
+        minHeight: "600px",
       }}
     >
-      <Box style={{ paddingTop: "200px" }}>
-        <Heading p={6} as="h3" size="lg">
-          Keep track of your quiz answers and score!
-        </Heading>
+      <Box style={{ paddingTop: "490px" }}>
         <Button variantColor="red" m={3} onClick={() => history.push("/quiz")}>
           Start keeping score!
         </Button>
