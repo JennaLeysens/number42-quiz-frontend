@@ -1,22 +1,28 @@
 import React from "react";
-import { Image, Button, Heading } from "@chakra-ui/core";
-import globalquiz from "../globalquiz.png";
+import { Box, Image, Button, Heading } from "@chakra-ui/core";
+import map from "../map.png";
 import { useHistory } from "react-router-dom";
+import "./Home.css";
 
 export default function Home() {
   const history = useHistory();
 
   return (
-    <div>
-      <Image marginBottom={18} w={1500} src={globalquiz}></Image>
-      <div>
-        <Heading p={6} as="h3" size="lg">
-          Keep track of your quiz answers and score!
-        </Heading>
+    <Box
+      className="contentContainer"
+      style={{
+        backgroundRepeat: "no-repeat",
+        backgroundImage: `url("${map}")`,
+        backgroundPositionX: "center",
+        backgroundPositionY: "center",
+        minHeight: "600px",
+      }}
+    >
+      <Box style={{ paddingTop: "490px" }}>
         <Button variantColor="red" m={3} onClick={() => history.push("/quiz")}>
           Start keeping score!
         </Button>
-      </div>
-    </div>
+      </Box>
+    </Box>
   );
 }
