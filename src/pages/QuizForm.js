@@ -5,6 +5,7 @@ import DatePicker from "react-datepicker";
 import { useHistory } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { addQuiz } from "../store/User/actions";
+import "./Forms.css";
 
 export default function QuizForm() {
   const [date, setDate] = useState(() => new Date());
@@ -23,9 +24,9 @@ export default function QuizForm() {
   }
 
   return (
-    <Box>
+    <Box className="quizForm">
       <Heading>I'm starting a quiz!</Heading>
-      <Stack>
+      <Box>
         <FormLabel>Edition number</FormLabel>
         <Input
           w={200}
@@ -33,8 +34,8 @@ export default function QuizForm() {
           value={editionNumber}
           onChange={(e) => setEdition(e.target.value)}
         ></Input>
-      </Stack>
-      <Stack p={5}>
+      </Box>
+      <Box p={5}>
         <FormLabel>Quiz date</FormLabel>
         <DatePicker
           selected={date}
@@ -44,7 +45,7 @@ export default function QuizForm() {
           }}
           inline
         />
-      </Stack>
+      </Box>
       <Box>
         <Box>
           <Heading as="h4" size="md">
