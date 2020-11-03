@@ -24,18 +24,18 @@ export default function QuizForm() {
   }
 
   return (
-    <Box className="quizForm">
+    <Box className="forms">
       <Heading marginBottom={10}>Start a quiz!</Heading>
       <Box>
-        <FormLabel>Edition number</FormLabel>
+        <FormLabel isRequired>Edition number</FormLabel>
         <Input
           size="sm"
           value={editionNumber}
           onChange={(e) => setEdition(e.target.value)}
         ></Input>
       </Box>
-      <Box p={5}>
-        <FormLabel>Quiz date</FormLabel>
+      <Box paddingTop={5}>
+        <FormLabel isRequired>Quiz date </FormLabel>
         <DatePicker
           selected={date}
           value={date}
@@ -46,10 +46,12 @@ export default function QuizForm() {
         />
       </Box>
       <Box>
-        <Box>
-          <Heading as="h4" size="md">
-            Team member(s)
-          </Heading>
+        <Box p={5}>
+          <FormLabel>Team name</FormLabel>
+          <Input></Input>
+        </Box>
+        <Box p={5}>
+          <FormLabel>Team member(s)</FormLabel>
           {teamMembers.map((teamMember, i) => {
             return (
               <Input

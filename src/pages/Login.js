@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import {
   Input,
@@ -10,6 +10,7 @@ import {
   Box,
 } from "@chakra-ui/core";
 import { login } from "../store/User/actions";
+import "./Forms.css";
 
 export default function Login() {
   const [email, setEmail] = useState();
@@ -26,7 +27,7 @@ export default function Login() {
   }
 
   return (
-    <Box>
+    <Box className="forms">
       <Heading paddingBottom={10}>Login</Heading>
       <FormControl isRequired>
         <FormLabel>Email address</FormLabel>{" "}
@@ -34,6 +35,8 @@ export default function Login() {
           placeholder="Email address"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
+          w={350}
+          marginBottom={5}
         ></Input>
         <FormLabel>Password</FormLabel>{" "}
         <Input
@@ -41,11 +44,14 @@ export default function Login() {
           type="password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
+          w={350}
         ></Input>
       </FormControl>
-      <Button variantColor="red" onClick={submitForm}>
-        Login
-      </Button>
+      <Box>
+        <Button margin={5} variantColor="red" onClick={submitForm}>
+          Login
+        </Button>
+      </Box>
     </Box>
   );
 }
