@@ -8,6 +8,8 @@ import {
   FormControl,
   Heading,
   Box,
+  Text,
+  Link,
 } from "@chakra-ui/core";
 import { login } from "../store/User/actions";
 import "./Forms.css";
@@ -52,6 +54,12 @@ export default function Login() {
           Login
         </Button>
       </Box>
+      <Text margin={3}>
+        Don't have an account yet?{" "}
+        <Link color="red.500" href="/signup">
+          Sign up!
+        </Link>
+      </Text>
     </Box>
   );
 }
