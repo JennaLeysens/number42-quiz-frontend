@@ -28,7 +28,7 @@ export default function Signup() {
 
   return (
     <Box>
-      <Heading paddingBottom={4}>Signup</Heading>
+      <Heading paddingBottom={10}>Signup</Heading>
       <FormControl isRequired>
         <FormLabel>Name</FormLabel>{" "}
         <Input

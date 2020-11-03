@@ -25,11 +25,10 @@ export default function QuizForm() {
 
   return (
     <Box className="quizForm">
-      <Heading>I'm starting a quiz!</Heading>
+      <Heading marginBottom={10}>Start a quiz!</Heading>
       <Box>
         <FormLabel>Edition number</FormLabel>
         <Input
-          w={200}
           size="sm"
           value={editionNumber}
           onChange={(e) => setEdition(e.target.value)}

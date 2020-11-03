@@ -27,7 +27,7 @@ export default function Login() {
 
   return (
     <Box>
-      <Heading paddingBottom={4}>Login</Heading>
+      <Heading paddingBottom={10}>Login</Heading>
       <FormControl isRequired>
         <FormLabel>Email address</FormLabel>{" "}
         <Input
