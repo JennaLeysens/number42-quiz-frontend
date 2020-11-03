@@ -15,23 +15,22 @@ export default function Navbar() {
 
   return (
     <>
-      <Box className="logo">
-        <NavLink exact to="/">
-          <Image src={logo}></Image>
-        </NavLink>
-      </Box>
       <Box className="navbar">
-        <Box className="navItem">
-          <NavLink exact to="/">
-            Home
-          </NavLink>
+        <NavLink exact to="/">
+          <Image maxWidth="40%" src={logo}></Image>
+        </NavLink>
+        <Box className="navbar">
+          <Box className="navItem">
+            <NavLink exact to="/">
+              Home
+            </NavLink>
+          </Box>
+          <Box className="navItem">
+            <NavLink exact to="/quiz">
+              Start quiz
+            </NavLink>
+          </Box>
         </Box>
-        <Box className="navItem">
-          <NavLink exact to="/quiz">
-            Start quiz
-          </NavLink>
-        </Box>
-
         {!token ? (
           <Box className="navbar">
             <Box className="navItem">
