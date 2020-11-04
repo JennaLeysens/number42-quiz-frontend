@@ -104,7 +104,7 @@ export function signUp(name, email, password) {
   };
 }
 
-export function addQuiz(editionNumber, date, teamMembers) {
+export function addQuiz(editionNumber, date, teamMembers, teamName) {
   return async (dispatch, getState) => {
     const token = selectToken(getState());
     console.log("action");
@@ -115,11 +115,12 @@ export function addQuiz(editionNumber, date, teamMembers) {
           editionNumber,
           date,
           teamMembers,
+          teamName,
         },
         { headers: { Authorization: `Bearer ${token}` } }
       );
       dispatch(quizAdded(response.data.newQuiz));
-      console.log("data", response.data);
+      console.log("new quiz", response.data);
     } catch (error) {
       if (error.response) {
         console.log(error.response);
