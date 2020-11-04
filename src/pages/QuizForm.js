@@ -10,12 +10,13 @@ import "./Forms.css";
 export default function QuizForm() {
   const [date, setDate] = useState(() => new Date());
   const [editionNumber, setEdition] = useState();
+  const [teamName, setTeamName] = useState([]);
   const [teamMembers, setTeamMembers] = useState([]);
   const history = useHistory();
   const dispatch = useDispatch();
 
   function submitForm() {
-    dispatch(addQuiz(editionNumber, date, teamMembers));
+    dispatch(addQuiz(editionNumber, date, teamMembers, teamName));
     history.push("/quizzes");
   }
 
@@ -48,7 +49,12 @@ export default function QuizForm() {
       <Box>
         <Box p={5}>
           <FormLabel>Team name</FormLabel>
-          <Input></Input>
+          <Input
+            value={teamName}
+            onChange={(e) => {
+              setTeamName(e.target.value);
+            }}
+          ></Input>
         </Box>
         <Box p={5}>
           <FormLabel>Team member(s)</FormLabel>
