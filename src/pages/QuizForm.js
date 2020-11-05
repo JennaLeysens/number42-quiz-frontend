@@ -25,7 +25,7 @@ export default function QuizForm() {
   }
 
   return (
-    <Box className="forms">
+    <Box className="quizForm">
       <Heading marginBottom={10}>Start a quiz!</Heading>
       <Box>
         <FormLabel isRequired>Edition number</FormLabel>

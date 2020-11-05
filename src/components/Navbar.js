@@ -41,22 +41,24 @@ export default function Navbar() {
             </Box>
           </Box>
         ) : (
-          <Box className="navItem">
-            <NavLink to="/quizzes">{user.name}'s quizzes</NavLink>
-            <Button
-              fontSize="14px"
-              variantColor="gray"
-              variant="outline"
-              marginLeft={4}
-              size="xs"
-              p={2}
-              onClick={() => {
-                dispatch(logOut());
-                history.push("/");
-              }}
-            >
-              Logout
-            </Button>
+          <Box className="navbar">
+            <Box className="navItem">
+              <NavLink to="/quizzes">{user.name}'s quizzes</NavLink>
+              <Button
+                fontSize="14px"
+                variantColor="gray"
+                variant="outline"
+                marginLeft={4}
+                size="xs"
+                p={2}
+                onClick={() => {
+                  dispatch(logOut());
+                  history.push("/");
+                }}
+              >
+                Logout
+              </Button>
+            </Box>
           </Box>
         )}
       </Box>
