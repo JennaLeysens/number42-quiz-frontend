@@ -2,13 +2,14 @@
   display: flex;
   justify-content: center;
   padding-bottom: 6px;
-  margin-top: 4px;
+  margin-top: 8px;
 }
 
 .navItem {
   padding-right: 14px;
-  font-weight: 600;
-  color: rgb(218, 22, 22);
+  font-weight: 300;
+  font-family: Verdana, sans-serif;
+  color: red;
 }
 
 .logo {
