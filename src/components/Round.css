@@ -1,0 +1,15 @@
+.round {
+}
+
+.quizRound {
+  /* outline-style: solid;
+  outline-width: 0.5px;
+  outline-color: rgb(245, 83, 83); */
+  max-width: 1300px;
+  padding: 8px;
+  margin-bottom: 3px;
+  display: flex;
+  margin: 0 auto;
+  justify-content: center;
+  align-items: center;
+}

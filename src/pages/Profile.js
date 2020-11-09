@@ -21,19 +21,22 @@ export default function Profile() {
 
   return (
     <Box>
-      <Heading>{user.name}'s quizzes</Heading>
+      <Heading marginBottom={10}>{user.name}'s quizzes</Heading>
       {quizzesSorted
         ? quizzesSorted.map((quiz) => {
             return (
-              <Box>
+              <Box padding={2}>
                 <Link href={`/quizzes/${quiz.id}`}>
                   <Box>
-                    Edition number: {quiz.editionNumber} Team name:{" "}
-                    {quiz.teamName} {""}Team:
-                    {quiz.teamMembers.join(", ")}
+                    <b>Edition number: </b>
+                    {quiz.editionNumber} {""}
+                    <b>Team name: </b>
+                    {quiz.teamName} {""}
+                    <b>Team:</b> {quiz.teamMembers.join(", ")}
                   </Box>
                 </Link>
                 <Button
+                  marginTop={1}
                   variantColor="red"
                   size="xs"
                   onClick={() => dispatch(deleteQuiz(quiz.id))}

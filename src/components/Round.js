@@ -5,6 +5,7 @@ import { Heading, Button, Box } from "@chakra-ui/core";
 // import "./AnswerForm.css";
 import { addAnswer } from "../store/User/actions";
 import { useParams } from "react-router-dom";
+import "./Round.css";
 
 export default function Round({ round }) {
   const dispatch = useDispatch();
@@ -22,7 +23,7 @@ export default function Round({ round }) {
   }
 
   return (
-    <Box>
+    <Box className="round">
       <Box>
         <Heading marginBottom={3} as="h5" size="sm">
           Add your answers
@@ -32,7 +33,7 @@ export default function Round({ round }) {
             return <AnswerForm initialValue={answer}></AnswerForm>;
           })}
         {addAnswer}
-        <Button variantColor="teal" onClick={newAnswer}>
+        <Button variantColor="red" onClick={newAnswer}>
           +
         </Button>
         Add answer
