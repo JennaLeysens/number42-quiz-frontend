@@ -7,6 +7,7 @@ import { fetchQuiz } from "../store/User/actions";
 import { addRound } from "../store/User/actions";
 import Round from "../components/Round";
 import Accordion from "../components/Accordion";
+import "../components/Round.css";
 
 export default function Quiz() {
   const { id } = useParams();
@@ -72,24 +73,26 @@ export default function Quiz() {
                 : null;
               return (
                 <Box>
-                  <Heading as="h4" size="md">
-                    Round {round.roundNumber}
-                  </Heading>
-                  <Accordion>
-                    <Round round={round}></Round>
-                  </Accordion>
-                  <Box marginTop={4}>Points {roundTotal}</Box>
+                  <Box className="quizRound">
+                    {/* <Heading as="h4" size="md">
+                      Round {round.roundNumber}
+                    </Heading> */}
+                    <Accordion title={`Round ${round.roundNumber}`}>
+                      <Round round={round}></Round>
+                    </Accordion>
+                  </Box>{" "}
+                  <Box marginTop={4}>Round total: {roundTotal}</Box>
                 </Box>
               );
             })
           : null}
       </Box>
       <Box marginTop={4}> {newRound}</Box>
-      <Button variantColor="red" onClick={createRound}>
+      <Button variantColor="red" size="md" onClick={createRound}>
         +
-      </Button>
+      </Button>{" "}
       Round
-      <Box marginTop={4}>
+      <Box marginTop={8}>
         <Heading as="h4" size="md">
           Total points:{totalPoints}
         </Heading>
