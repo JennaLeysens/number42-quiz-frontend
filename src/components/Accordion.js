@@ -12,23 +12,30 @@ export default function Accordion(props) {
   console.log(rounds);
 
   return (
-    <Box>
-      {" "}
-      <Box className="accordion">
-        <Heading size="md">{props.title}</Heading>
-
-        <Button
-          marginLeft={2}
-          variantColor="red"
-          onClick={() => setIsShowing((v) => !v)}
-        >
-          {isShowing ? (
-            <Icon name="chevron-down" size="24px" />
-          ) : (
-            <Icon name="chevron-right" size="24px" />
-          )}
-        </Button>
-      </Box>
+    <Box marginTop={4}>
+      <Button
+        padding={8}
+        width={800}
+        variant="outline"
+        variantColor="red"
+        onClick={() => setIsShowing((v) => !v)}
+      >
+        {isShowing ? (
+          <Box className="accordion">
+            <Heading marginRight={650} size="md">
+              {props.title}
+            </Heading>
+            <Icon name="chevron-down" size="28px" />
+          </Box>
+        ) : (
+          <Box className="accordion">
+            <Heading marginRight={650} size="md">
+              {props.title}
+            </Heading>
+            <Icon name="chevron-right" size="28px" />
+          </Box>
+        )}
+      </Button>
       {isShowing && <Box>{props.children}</Box>}
     </Box>
   );
