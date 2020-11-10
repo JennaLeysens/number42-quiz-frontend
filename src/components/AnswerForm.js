@@ -38,7 +38,7 @@ export default function AnswerForm({ initialValue }) {
           ></Input>
         </Stack>
       </Box>
-      <Button variantColor="red" m={10} size="sm" onClick={submitForm}>
+      <Button variantColor="red" m={5} size="sm" onClick={submitForm}>
         Save answer
       </Button>
     </Box>

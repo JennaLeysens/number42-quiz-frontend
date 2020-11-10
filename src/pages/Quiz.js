@@ -81,17 +81,17 @@ export default function Quiz() {
                       <Round round={round}></Round>
                     </Accordion>
                   </Box>{" "}
-                  <Box marginTop={4}>Round total: {roundTotal}</Box>
+                  <Box marginTop={1}>Round total: {roundTotal}</Box>
                 </Box>
               );
             })
           : null}
       </Box>
       <Box marginTop={4}> {newRound}</Box>
-      <Button variantColor="red" size="md" onClick={createRound}>
+      <Button variantColor="red" size="sm" onClick={createRound}>
         +
       </Button>{" "}
-      Round
+      New round
       <Box marginTop={8}>
         <Heading as="h4" size="md">
           Total points:{totalPoints}

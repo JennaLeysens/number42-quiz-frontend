@@ -1,0 +1,6 @@
+.accordion {
+  max-width: 1300px;
+  padding: 8px;
+  display: flex;
+  align-items: center;
+}
