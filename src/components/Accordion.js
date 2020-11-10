@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Box, Icon, Heading } from "@chakra-ui/core";
 import { useSelector } from "react-redux";
 import { selectUser } from "../store/User/selector";
+import "./Accordion.css";
 
 export default function Accordion(props) {
   const [isShowing, setIsShowing] = useState(false);
@@ -12,8 +13,10 @@ export default function Accordion(props) {
 
   return (
     <Box>
-      <Heading size="md">{props.title}</Heading>
-      <Box>
+      {" "}
+      <Box className="accordion">
+        <Heading size="md">{props.title}</Heading>
+
         <Button
           marginLeft={2}
           variantColor="red"
