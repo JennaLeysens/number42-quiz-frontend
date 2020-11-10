@@ -1,4 +1,5 @@
 .container {
   display: flex;
-  max-width: 900px;
+  max-width: 800px;
+  margin-top: 25px;
 }

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AnswerForm from "./AnswerForm";
 import { useDispatch, useSelector } from "react-redux";
-import { Heading, Button, Box } from "@chakra-ui/core";
+import { Heading, Button, Box, Text } from "@chakra-ui/core";
 // import "./AnswerForm.css";
 import { addAnswer } from "../store/User/actions";
 import { useParams } from "react-router-dom";
@@ -25,17 +25,19 @@ export default function Round({ round }) {
   return (
     <Box className="round">
       <Box>
-        <Heading marginBottom={3} as="h5" size="sm">
-          Add your answers
-        </Heading>
         {round.answers &&
           round.answers.map((answer) => {
-            return <AnswerForm initialValue={answer}></AnswerForm>;
+            return (
+              <Box>
+                <Text></Text>
+                <AnswerForm initialValue={answer}></AnswerForm>
+              </Box>
+            );
           })}
         {addAnswer}
-        <Button variantColor="red" onClick={newAnswer}>
+        <Button size="sm" marginTop={3} variantColor="red" onClick={newAnswer}>
           +
-        </Button>
+        </Button>{" "}
         Add answer
       </Box>
     </Box>
