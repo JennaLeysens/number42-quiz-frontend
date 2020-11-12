@@ -6,7 +6,7 @@ import { useParams } from "react-router-dom";
 import { fetchQuiz } from "../store/User/actions";
 import { addRound } from "../store/User/actions";
 import Round from "../components/Round";
-import Accordion from "../components/Accordion";
+import Accordion from "../components/RoundAccordion";
 import "../components/Round.css";
 
 export default function Quiz(props) {

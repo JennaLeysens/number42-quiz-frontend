@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Box, Icon, Heading, Text } from "@chakra-ui/core";
 import { useSelector } from "react-redux";
 import { selectUser } from "../store/User/selector";
-import "./Accordion.css";
+import "./RoundAccordion.css";
 
 export default function Accordion(props) {
   const [isShowing, setIsShowing] = useState(false);
