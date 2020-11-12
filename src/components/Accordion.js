@@ -20,28 +20,19 @@ export default function Accordion(props) {
         variantColor="red"
         onClick={() => setIsShowing((v) => !v)}
       >
-        {isShowing ? (
-          <Box>
-            <Box className="accordion">
-              <Box>
-                <Heading marginRight={650} size="md">
-                  {props.title}
-                </Heading>
-                <Icon name="chevron-down" size="28px" />
-              </Box>{" "}
-            </Box>
+        <Box>
+          <Box className="accordion">
+            <Heading marginRight={650} size="md">
+              {props.title}
+            </Heading>
+            <Icon
+              name={isShowing ? "chevron-down" : "chevron-right"}
+              size="28px"
+            />
           </Box>
-        ) : (
-          <Box>
-            <Box className="accordion">
-              <Heading marginRight={650} size="md">
-                {props.title}
-              </Heading>
-              <Icon name="chevron-right" size="28px" />
-            </Box>
-          </Box>
-        )}
+        </Box>
       </Button>
+      <Text>Round total: {props.total}</Text>
       {isShowing && <Box>{props.children}</Box>}
     </Box>
   );

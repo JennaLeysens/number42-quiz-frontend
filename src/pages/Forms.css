@@ -18,12 +18,3 @@
   align-items: center;
   padding: 15px;
 }
-
-.roundTotalContainer {
-  margin-left: 1008px;
-  margin-top: -8px;
-  outline: solid 1px;
-  outline-color: red;
-  max-width: 110px;
-  padding: 1px;
-}

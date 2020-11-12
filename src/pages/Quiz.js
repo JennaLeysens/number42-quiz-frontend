@@ -74,14 +74,13 @@ export default function Quiz(props) {
               return (
                 <Box>
                   <Box className="quizRound">
-                    <Accordion title={`Round ${round.roundNumber}`}>
-                      {" "}
-                      <Box className="roundTotalContainer">
-                        <Text> Round total:{roundTotal}</Text>
-                      </Box>
+                    <Accordion
+                      title={`Round ${round.roundNumber}`}
+                      total={roundTotal}
+                    >
                       <Round round={round}></Round>
                     </Accordion>
-                  </Box>{" "}
+                  </Box>
                 </Box>
               );
             })
