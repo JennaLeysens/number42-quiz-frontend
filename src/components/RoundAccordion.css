@@ -1,5 +1,5 @@
 .accordion {
-  max-width: 1300px;
+  max-width: 1250px;
   padding: 8px;
   display: flex;
   align-items: center;
@@ -8,6 +8,7 @@
 .roundTotalContainer {
   margin-left: 688px;
   margin-top: 0px;
+  margin-bottom: 8px;
   outline: solid 1px;
   outline-color: red;
   max-width: 110px;
