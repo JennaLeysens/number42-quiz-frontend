@@ -32,7 +32,9 @@ export default function Accordion(props) {
           </Box>
         </Box>
       </Button>
-      <Text>Round total: {props.total}</Text>
+      <Box className="roundTotalContainer">
+        <Text>Round total: {props.total}</Text>
+      </Box>
       {isShowing && <Box>{props.children}</Box>}
     </Box>
   );

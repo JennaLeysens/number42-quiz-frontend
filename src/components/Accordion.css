@@ -4,3 +4,12 @@
   display: flex;
   align-items: center;
 }
+
+.roundTotalContainer {
+  margin-left: 688px;
+  margin-top: 0px;
+  outline: solid 1px;
+  outline-color: red;
+  max-width: 110px;
+  padding: 1px;
+}
