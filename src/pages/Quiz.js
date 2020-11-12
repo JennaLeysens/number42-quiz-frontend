@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { Heading, Box, Button } from "@chakra-ui/core";
+import { Heading, Box, Button, Text } from "@chakra-ui/core";
 import { selectUser } from "../store/User/selector";
 import { useParams } from "react-router-dom";
 import { fetchQuiz } from "../store/User/actions";
 import { addRound } from "../store/User/actions";
 import Round from "../components/Round";
-import Accordion from "../components/Accordion";
+import Accordion from "../components/RoundAccordion";
 import "../components/Round.css";
 
-export default function Quiz() {
+export default function Quiz(props) {
   const { id } = useParams();
   const user = useSelector(selectUser);
   const dispatch = useDispatch();
@@ -74,14 +74,13 @@ export default function Quiz() {
               return (
                 <Box>
                   <Box className="quizRound">
-                    {/* <Heading as="h4" size="md">
-                      Round {round.roundNumber}
-                    </Heading> */}
-                    <Accordion title={`Round ${round.roundNumber}`}>
+                    <Accordion
+                      title={`Round ${round.roundNumber}`}
+                      total={roundTotal}
+                    >
                       <Round round={round}></Round>
                     </Accordion>
-                  </Box>{" "}
-                  <Box marginTop={1}>Round total: {roundTotal}</Box>
+                  </Box>
                 </Box>
               );
             })

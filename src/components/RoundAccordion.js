@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { Button, Box, Icon, Heading } from "@chakra-ui/core";
+import { Button, Box, Icon, Heading, Text } from "@chakra-ui/core";
 import { useSelector } from "react-redux";
 import { selectUser } from "../store/User/selector";
-import "./Accordion.css";
+import "./RoundAccordion.css";
 
 export default function Accordion(props) {
   const [isShowing, setIsShowing] = useState(false);
@@ -20,22 +20,21 @@ export default function Accordion(props) {
         variantColor="red"
         onClick={() => setIsShowing((v) => !v)}
       >
-        {isShowing ? (
+        <Box>
           <Box className="accordion">
             <Heading marginRight={650} size="md">
               {props.title}
             </Heading>
-            <Icon name="chevron-down" size="28px" />
+            <Icon
+              name={isShowing ? "chevron-down" : "chevron-right"}
+              size="28px"
+            />
           </Box>
-        ) : (
-          <Box className="accordion">
-            <Heading marginRight={650} size="md">
-              {props.title}
-            </Heading>
-            <Icon name="chevron-right" size="28px" />
-          </Box>
-        )}
+        </Box>
       </Button>
+      <Box className="roundTotalContainer">
+        <Text>Round total: {props.total}</Text>
+      </Box>
       {isShowing && <Box>{props.children}</Box>}
     </Box>
   );

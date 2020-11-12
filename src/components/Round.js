@@ -35,10 +35,17 @@ export default function Round({ round }) {
             );
           })}
         {addAnswer}
-        <Button size="sm" marginTop={3} variantColor="red" onClick={newAnswer}>
-          +
-        </Button>{" "}
-        Add answer
+        <Box>
+          <Button
+            size="sm"
+            marginTop={6}
+            variantColor="red"
+            onClick={newAnswer}
+          >
+            +
+          </Button>{" "}
+          <Text marginTop={2}>Add answer</Text>
+        </Box>
       </Box>
     </Box>
   );
